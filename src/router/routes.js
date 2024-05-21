@@ -26,6 +26,12 @@ export const routes = [
   },
 
   {
+    path: "/scooter-favorites",
+    name: "Favorites scooter",
+    component: () => import("@/core/fast-scooter/pages/scooter-favorites.component.vue")
+  },
+
+  {
     path: "/",
     redirect: "/home",
   },
