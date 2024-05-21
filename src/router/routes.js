@@ -1,5 +1,6 @@
 import HomeView from "@/core/public/pages/home-view.component.vue"
 import PageNotFound from "@/core/public/pages/page-not-found.component.vue"
+import UserPaymentMethodComponent from '@/core/fast-scooter/components/user-payment-method.component.vue'
 
 export const routes = [
   {
@@ -33,5 +34,10 @@ export const routes = [
     path: "/:pathMatch(.*)*",
     name: "Page Not Found",
     component: PageNotFound
+  },
+  {
+    path: "/payment-method/:id",
+    name: "Payment Method",
+    component: UserPaymentMethodComponent
   },
 ]
