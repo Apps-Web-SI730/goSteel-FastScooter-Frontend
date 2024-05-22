@@ -4,7 +4,8 @@
       "id": "1",
       "username": "User",
       "email": "email@email.com",
-      "password": "password123"
+      "password": "password123",
+      "cart": ["1","2"]
     },
     {
       "id": "520b",

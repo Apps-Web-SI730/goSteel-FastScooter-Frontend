@@ -8,23 +8,34 @@ export default {
   data() {
     return {
       scooters: null,
-      layout: 'grid'
+      layout: 'grid',
+      searchTerm: '',
+      filteredScooters: [],
     }
   },
   async mounted() {
     const response = await ScootersService.getAllScooters();
     this.scooters = response.data;
+    this.filteredScooters = this.scooters;
   },
-  methods: {}
+  methods: {
+    filterScooters() {
+      const searchTerm = this.searchTerm.toLowerCase().trim();
+      this.filteredScooters = this.scooters.filter(scooter =>
+          (scooter.brand.toLowerCase().includes(searchTerm) || scooter.description.toLowerCase().includes(searchTerm)));
+    }
+  }
 }
 </script>
 
 <template>
   <h1>scooter-search working!</h1>
+  <pv-button icon="pi pi-shopping-cart" outlined></pv-button >
   <div class="card">
-    <pv-data-view :value="scooters" :layout="layout">
+    <pv-data-view :value="filteredScooters" :layout="layout">
       <template #header>
         <div class="flex justify-content-end">
+          <pv-input-text v-model="searchTerm" placeholder="Search scooter" @input="filterScooters"/>
           <pv-data-view-options v-model="layout"/>
         </div>
       </template>

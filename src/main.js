@@ -22,7 +22,8 @@ import TabPanel from 'primevue/tabpanel'
 import FileUpload from 'primevue/fileupload'
 import DataView from 'primevue/dataview';
 import DataViewLayoutOptions from 'primevue/dataviewlayoutoptions'
-
+import IconField from 'primevue/iconfield';
+import InputIcon from 'primevue/inputicon';
 
 const app = createApp(App)
 
@@ -43,4 +44,6 @@ app
     .component('pv-file-upload', FileUpload)
     .component('pv-data-view',DataView)
     .component('pv-data-view-options',DataViewLayoutOptions)
+    .component('pv-icon-filed',IconField)
+    .component('pv-input-icon',InputIcon)
     .mount('#app')
