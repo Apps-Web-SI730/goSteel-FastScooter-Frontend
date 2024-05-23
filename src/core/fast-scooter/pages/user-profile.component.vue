@@ -2,27 +2,25 @@
   <div class="user-profile-container">
     <div class="profile-info-container">
       <div class="profile-info">
-        <p><strong>Nombres:</strong> Henry William</p>
-        <p><strong>Apellidos:</strong> Cavill Dalgliesh</p>
-        <p><strong>Celular:</strong> 942431232</p>
-        <p><strong>Correo:</strong> Elmaspepadelmundo@gmail.com</p>
+        <p><strong>Nombres:</strong> {{ user.firstName }}</p>
+        <p><strong>Apellidos:</strong> {{ user.lastName }}</p>
+        <p><strong>Celular:</strong> {{ user.phone }}</p>
+        <p><strong>Correo:</strong> {{ user.email }}</p>
         <div class="button-group">
           <UserProfileButton label="Actualizar Datos" class="p-button-outlined update-button" @click="updateProfile" />
-          <UserProfileButton label="Cerrar Sesión" class="p-button-danger p-button-outlined logout-button" @click="logout" />
+          <UserProfileButton label="Cerrar Sesión" class="p-button-danger  logout-button" @click="logout" />
         </div>
       </div>
     </div>
     <div class="profile-picture">
       <img :src="user.profilePicture" alt="Foto de perfil" />
-      <div class="change-photo-link">
-        <a href="#" @click="changePhoto">Cambiar foto</a>
-      </div>
     </div>
   </div>
 </template>
 
 <script>
-import UserProfileButton from "@/core/fast-scooter/components/user-profile-button.component.vue";
+import axios from 'axios'
+import UserProfileButton from '@/core/fast-scooter/components/user-profile-button.component.vue'
 
 export default {
   name: 'UserProfile',
@@ -31,26 +29,34 @@ export default {
   },
   data() {
     return {
-      user: {
-        profilePicture: 'https://via.placeholder.com/300x400' // URL de ejemplo para la foto de perfil
-      }
-    };
+      user: {}
+    }
+  },
+  mounted() {
+    // Fetch los datos del usuario
+    axios.get('http://localhost:3000/users/1')
+      .then(response => {
+        this.user = response.data
+      })
+      .catch(error => {
+        console.error('Error al obtener datos del usuario:', error)
+      })
   },
   methods: {
     updateProfile() {
-      this.$router.push('/user-update');
+      this.$router.push('/user-update')
     },
     logout() {
-      // Lógica para cerrar sesión
-      alert('Cerrar sesión');
+      this.$router.push('/home')
     },
     changePhoto() {
       // Lógica para cambiar la foto del perfil
-      alert('Cambiar foto');
+      alert('Cambiar foto')
     }
   }
-};
+}
 </script>
+
 
 <style scoped>
 .user-profile-container {
@@ -67,7 +73,7 @@ export default {
   border-radius: 10px;
   padding: 40px;
   background-color: #fff;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
   margin: 20px;
   width: 100%;
   max-width: 450px;
@@ -105,6 +111,11 @@ export default {
   color: white;
 }
 
+.update-button {
+  background-color: #28a745;
+  color: white;
+}
+
 .profile-picture {
   text-align: center;
   margin: 20px;
@@ -117,20 +128,6 @@ export default {
   border-radius: 10px;
   border: 3px solid #ddd;
 }
-
-.change-photo-link a {
-  display: inline-block;
-  margin-top: 10px;
-  font-size: 1em;
-  color: #007bff;
-  text-decoration: none;
-  cursor: pointer;
-}
-
-.change-photo-link a:hover {
-  text-decoration: underline;
-}
-
 
 @media (max-width: 768px) {
   .user-profile-container {
@@ -152,29 +149,7 @@ export default {
     width: calc(50% - 10px);
     margin: 5px;
   }
-
-  .update-button {
-    text-decoration: none;
-    color: inherit;
-    cursor: pointer;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    border: 1px solid #007bff;
-    border-radius: 5px;
-    background-color: #007bff;
-    color: white;
-  }
-
-  .button-text {
-    display: inline-block;
-    padding: 8px 16px;
-    border-radius: 4px;
-    transition: background-color 0.3s;
-  }
-
-  .button-text:hover {
-    background-color: #0056b3;
-  }
 }
+
+
 </style>
