@@ -1,5 +1,6 @@
 import HomeView from "@/core/public/pages/home-view.component.vue"
 import PageNotFound from "@/core/public/pages/page-not-found.component.vue"
+import UserProfileUpdateComponent from '@/core/fast-scooter/pages/user-profile-update.component.vue'
 
 export const routes = [
   {
@@ -29,7 +30,11 @@ export const routes = [
     name: "Search Scooter",
     component: () => import("@/core/fast-scooter/pages/scooter-search.component.vue")
   },
-
+  {
+    path: "/user-update",
+    name: "Update User",
+    component: UserProfileUpdateComponent,
+  },
   {
     path: "/scooter-favorites",
     name: "Favorites scooter",
