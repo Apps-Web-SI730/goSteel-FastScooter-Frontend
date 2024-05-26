@@ -46,4 +46,5 @@ app
     .component('pv-data-view-options',DataViewLayoutOptions)
     .component('pv-icon-filed',IconField)
     .component('pv-input-icon',InputIcon)
+
     .mount('#app')
