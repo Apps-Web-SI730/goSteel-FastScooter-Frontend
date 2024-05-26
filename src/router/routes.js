@@ -31,6 +31,12 @@ export const routes = [
   },
 
   {
+    path: "/cart-shopping",
+    name: "Cart Shopping",
+    component: ()=> import("@/core/fast-scooter/pages/user-cart-shopping.component.vue")
+  },
+
+  {
     path: "/",
     redirect: "/home",
   },
