@@ -156,6 +156,15 @@
       "image": "https://www.emove.com.co/wp-content/uploads/2024/03/Jam-1-plus_Propuesta-1-500x500.webp"
     }
   ],
+  "booking": [
+    {
+      "id": "1",
+      "brand": "Brand Name",
+      "description": "Lorem Ipsum etvc",
+      "price": 100,
+      "image": "https://placehold.co/400"
+    }
+  ],
   "favorites": [
     {
       "id": "3",
