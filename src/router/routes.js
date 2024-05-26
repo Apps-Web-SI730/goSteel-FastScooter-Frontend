@@ -15,6 +15,11 @@ export const routes = [
     component: () => import("@/core/fast-scooter/pages/user-sign-up-form.component.vue")
   },
   {
+    path: "/support-client",
+    name: "home-contact",
+    component: () => import("@/core/fast-scooter/pages/user-support-client.vue")
+  },
+  {
     path: "/login",
     name: "Login Form",
     component: () => import("@/core/fast-scooter/pages/user-login-form.component.vue")
@@ -30,6 +35,18 @@ export const routes = [
     name: "Update User",
     component: UserProfileUpdateComponent,
   },
+  {
+    path: "/scooter-favorites",
+    name: "Favorites scooter",
+    component: () => import("@/core/fast-scooter/pages/scooter-favorites.component.vue")
+  },
+
+  {
+    path: "/cart-shopping",
+    name: "Cart Shopping",
+    component: ()=> import("@/core/fast-scooter/pages/user-cart-shopping.component.vue")
+  },
+
   {
     path: "/",
     redirect: "/home",
