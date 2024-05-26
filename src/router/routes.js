@@ -14,6 +14,11 @@ export const routes = [
     component: () => import("@/core/fast-scooter/pages/user-sign-up-form.component.vue")
   },
   {
+    path: "/support-client",
+    name: "home-contact",
+    component: () => import("@/core/fast-scooter/pages/user-support-client.vue")
+  },
+  {
     path: "/login",
     name: "Login Form",
     component: () => import("@/core/fast-scooter/pages/user-login-form.component.vue")
