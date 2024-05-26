@@ -1,7 +1,6 @@
 import HomeView from "@/core/public/pages/home-view.component.vue"
 import PageNotFound from "@/core/public/pages/page-not-found.component.vue"
-import UserProfileComponent from "@/core/fast-scooter/pages/user-profile.component.vue";
-import UserProfileUpdateComponent from '@/core/fast-scooter/pages/user-profile-update.component.vue'
+
 export const routes = [
   {
     path: "/home",
@@ -26,16 +25,6 @@ export const routes = [
     component: () => import("@/core/fast-scooter/pages/scooter-search.component.vue")
   },
 
-  {
-    path: "/user-profile",
-    name: "User Profile",
-    component: UserProfileComponent
-  },
-  {
-    path: "/user-update",
-    name: "User Profile Update",
-    component: UserProfileUpdateComponent,
-  },
   {
     path: "/",
     redirect: "/home",
