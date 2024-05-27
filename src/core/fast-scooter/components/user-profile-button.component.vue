@@ -1,4 +1,3 @@
-<!-- UserProfileButton.vue -->
 <template>
   <PrimeButton :label="label" :class="class" @click="handleClick" />
 </template>
@@ -6,7 +5,6 @@
 <script>
 import { defineComponent } from 'vue';
 import PrimeButton from 'primevue/button';
-
 export default defineComponent({
   name: 'UserProfileButton',
   components: {
@@ -31,5 +29,5 @@ export default defineComponent({
 </script>
 
 <style scoped>
-
+/* Aquí puedes añadir estilos específicos para tu botón personalizado si lo deseas */
 </style>

@@ -2,6 +2,7 @@ import HomeView from "@/core/public/pages/home-view.component.vue"
 import PageNotFound from "@/core/public/pages/page-not-found.component.vue"
 import UserPaymentMethodComponent from '@/core/fast-scooter/components/user-payment-method.component.vue'
 import UserProfileUpdateComponent from '@/core/fast-scooter/pages/user-profile-update.component.vue'
+import UserProfileComponent from '@/core/fast-scooter/pages/user-profile.component.vue'
 
 export const routes = [
   {
@@ -47,8 +48,13 @@ export const routes = [
     name: "Cart Shopping",
     component: ()=> import("@/core/fast-scooter/pages/user-cart-shopping.component.vue")
   },
-
   {
+    path: "/user-profile",
+    name: "User Profile",
+    component: UserProfileComponent
+  },
+  {
+
     path: "/",
     redirect: "/home",
   },
