@@ -13,7 +13,7 @@
   "dependencies": {
     "@vuelidate/core": "^2.0.3",
     "@vuelidate/validators": "^2.0.4",
-    "axios": "^1.6.8",
+    "axios": "^1.7.2",
     "json-server": "^0.17.4",
     "primeflex": "^3.3.1",
     "primeicons": "^7.0.0",
