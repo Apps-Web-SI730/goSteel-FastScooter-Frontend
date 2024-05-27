@@ -1,4 +1,3 @@
-<!-- UserProfileUpdate.component.vue -->
 <template>
   <div class="user-profile-update-container">
     <form @submit.prevent="saveProfile">
@@ -28,91 +27,85 @@
 
 <script>
 import UserProfileButton from "@/core/fast-scooter/components/user-profile-button.component.vue";
-
 export default {
-  name: 'UserProfileUpdate',
+name: 'UserProfileUpdate',
   components: {
-    UserProfileButton
-  },
-  data() {
-    return {
-      user: {
-        firstName: 'Henry William',
-        lastName: 'Cavill Dalgliesh',
-        phone: '942431232',
-        email: 'Elmaspepadelmundo@gmail.com'
-      }
-    };
-  },
-  methods: {
-    saveProfile() {
-      // Lógica para guardar los cambios del perfil
-      alert('Guardar cambios del perfil');
-    },
-    cancelUpdate() {
-      // Lógica para cancelar la actualización del perfil
-      alert('Cancelar actualización');
+  UserProfileButton
+},
+data() {
+  return {
+    user: {
+      firstName: 'Henry William',
+      lastName: 'Cavill Dalgliesh',
+      phone: '942431232',
+      email: 'Elmaspepadelmundo@gmail.com'
     }
+  };
+},
+methods: {
+  saveProfile() {
+    // Lógica para guardar los cambios del perfil
+    alert('Guardar cambios del perfil');
+  },
+  cancelUpdate() {
+    // Lógica para cancelar la actualización del perfil
+    this.$router.push('/user-profile');
   }
+}
 };
 </script>
 
-<style scoped>
-.user-profile-update-container {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  height: 100vh;
-  background-color: #f9f9f9;
-}
+  <style scoped>
+    .user-profile-update-container {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      background-color: #f9f9f9;
+    }
 
-form {
-  max-width: 600px;
-  width: 100%;
-  padding: 20px;
-  border: 1px solid #ddd;
-  border-radius: 10px;
-  background-color: white;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-}
+      form {
+        max-width: 600px;
+        width: 100%;
+        padding: 20px;
+        border: 1px solid #ddd;
+        border-radius: 10px;
+        background-color: white;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+      }
 
-.form-group {
-  margin-bottom: 15px;
-}
+     .form-group {
+       margin-bottom: 15px;
+     }
 
-.form-group label {
+  .form-group label {
   display: block;
   margin-bottom: 5px;
   font-weight: bold;
-}
-
-.form-group input {
+  }
+  .form-group input {
   width: 100%;
   padding: 8px;
   border: 1px solid #ccc;
   border-radius: 5px;
-}
-
-.button-group {
+  }
+  .button-group {
   display: flex;
   justify-content: flex-start;
   margin-top: 20px;
-}
-
-.save-button,
-.cancel-button {
+  }
+  .save-button,
+  .cancel-button {
   display: inline-block;
   width: auto;
   padding: 10px 20px;
   white-space: nowrap;
-}
-
-.save-button {
+  }
+  .save-button {
   margin-right: 20px;
-}
-
-.cancel-button {
+  }
+  .cancel-button {
   background-color: #f44336;
   color: white;
-}
-</style>
+  }
+  </style>
