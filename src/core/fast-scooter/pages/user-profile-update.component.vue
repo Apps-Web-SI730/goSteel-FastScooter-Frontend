@@ -3,7 +3,8 @@
     <div class="center-content">
       <div class="profile-picture">
         <img :src="user.profilePicture" alt="Foto de perfil" />
-        <a href="#" class="change-photo-link">Cambiar foto</a>
+        <a href="#" class="change-photo-link" @click="openFileInput">Cambiar foto</a>
+        <input type="file" ref="fileInput" @change="handleFileSelect" style="display: none;" accept="image/*">
       </div>
       <form @submit.prevent="saveProfile" class="user-form">
         <div class="form-group">
@@ -78,7 +79,20 @@ methods: {
   },
   cancelUpdate() {
     this.$router.push('/user-profile');
-  }
+  },
+  openFileInput() {
+    this.$refs.fileInput.click();
+  },
+  handleFileSelect(event) {
+    const file = event.target.files[0];
+    if (file) {
+      const reader = new FileReader();
+      reader.onload = () => {
+        this.user.profilePicture = reader.result;
+      };
+      reader.readAsDataURL(file);
+    }
+  },
 }
 };
 </script>
