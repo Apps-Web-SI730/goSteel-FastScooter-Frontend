@@ -1,17 +1,16 @@
 <script>
 import TheHeaderContent from '@/core/public/components/the-header-content.component.vue'
-import HomeUs from '@/core/public/components/home-us.component.vue';
 import HomeScooters from '@/core/public/components/home-scooters.component.vue';
 import HomeGetStarted from '@/core/public/components/home-get-started.component.vue'
 import HomeTeam from '@/core/public/components/home-team.component.vue'
 import HomeContact from '@/core/public/components/home-contact.component.vue'
+import HomeHeroSection from '@/core/public/components/home-hero-section.component.vue'
 
 export default {
   name: 'home-view.component',
   components: {
+    HomeHeroSection,
     TheHeaderContent,
-
-    HomeUs,
     HomeScooters,
     HomeGetStarted,
     HomeTeam,
@@ -24,7 +23,7 @@ export default {
   <the-header-content/>
 
   <div class="w-md justify-center mx-auto px-4">
-    <home-us/>
+    <home-hero-section/>
     <home-scooters />
     <home-team />
     <home-get-started />

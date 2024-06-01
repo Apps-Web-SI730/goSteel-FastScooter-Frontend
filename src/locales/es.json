@@ -1,0 +1,22 @@
+{
+  "home-about-content": "Somos una empresa que ofrece una plataforma digital donde puedes encontrar scooters para todo tipo de usuarios. \nPor lo tanto, lo que necesitas es un scooter si necesitas otro tipo de movilidad, \nen esta página encontrarás todo lo que necesitas de manera rápida, fácil y segura. \nAdemás, nunca tendrás que preocuparte por no encontrar la bicicleta adecuada, en este lugar puedes encontrar lo que necesitas según tus necesidades",
+  "home-options-title": "es la forma más fácil de encontrar scooters para...",
+  "home-option1": "Viajes cortos",
+  "home-option1-content": "Si necesitas un scooter para un viaje corto, este es el mejor lugar para encontrarlo.",
+  "home-option2": "Viajes largos",
+  "home-option2-content": "Si necesitas un scooter para un viaje largo, este es el mejor lugar para encontrarlo.",
+  "home-option3": "Cualquier tipo de viaje",
+  "home-option3-content": "Si necesitas un scooter para cualquier tipo de viaje, este es el mejor lugar para encontrarlo.",
+  "home-meet-our-team": "Conoce a nuestro equipo",
+  "home-get-started-slogan": "¡Comienza hoy!",
+  "home-get-started-content": "¡Únete a nuestro servidor de discord y comienza tu viaje hoy! \nLorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam nec purus et felis.",
+  "home-contact-us-title": "Contáctanos",
+  "home-contact-us-sub-title": "Por favor, rellena el siguiente formulario para contactarnos.",
+  "home-name": "Nombre",
+  "home-email": "Correo electrónico",
+  "home-message": "Mensaje",
+  "home-send": "Enviar",
+  "PageNotFound": "Error 404",
+  "PageNotFoundMessage": "Lo sentimos, la página que buscas no existe.",
+  "PageNotFoundButton": "Volver a la página principal"
+}

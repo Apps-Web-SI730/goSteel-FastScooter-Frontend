@@ -47,21 +47,24 @@ export default {
 </script>
 
 <template>
-  <div class="text-center w-27rem mx-auto">
-    <h2>{{$t('contact-us-title')}}</h2>
+  <div class="container-form">
+    <div class="container-input">
+      <h2>{{$t('contact-us-title')}}</h2>
 
-    <p>{{ $t('contact-us-sub-title') }}</p>
+      <p>{{ $t('contact-us-sub-title') }}</p>
 
-    <form class="m-3 flex-row" v-on:submit.prevent="submitForm" :class="{ 'form-complete': !formIncomplete }">
-      <pv-input-text v-model="name" placeholder="Name" class="w-full" :class="formIncomplete ?'f-incomplete' : 'f-complete'" />
+      <form class="m-3 flex-row" v-on:submit.prevent="submitForm" :class="{ 'form-complete': !formIncomplete }">
+        <pv-input-text v-model="name" placeholder="Name" class="w-full" :class="formIncomplete ?'f-incomplete' : 'f-complete'" />
 
-      <pv-input-text v-model="email" placeholder="Email" class="my-3 w-full" :class="formIncomplete ?'f-incomplete' : 'f-complete'" />
+        <pv-input-text v-model="email" placeholder="Email" class="my-3 w-full" :class="formIncomplete ?'f-incomplete' : 'f-complete'" />
 
-      <pv-textarea v-model="message" placeholder="Message" rows="5" class="mb-3 w-full" :class="formIncomplete ?'f-incomplete' : 'f-complete'" />
+        <pv-textarea v-model="message" placeholder="Message" rows="5" class="mb-3 w-full" :class="formIncomplete ?'f-incomplete' : 'f-complete'" />
 
-      <pv-button label="Send" type="submit" :class="formIncomplete ? 'bg-gradient-to-r from-red-500 to-red-700': 'bg-gradient-to-r from-green-500 to-blue-500 transition duration-500'" class="w-full"/>
-    </form>
+        <pv-button label="Send" type="submit" :class="formIncomplete ? 'bg-gradient-to-r from-red-500 to-red-700': 'bg-gradient-to-r from-green-500 to-blue-500 transition duration-500'" class="w-full"/>
+      </form>
+    </div>
   </div>
+
 </template>
 
 <style scoped>
@@ -105,4 +108,15 @@ pv-button:focus {
 }
 */
 
+.container-form{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+
+
+.text-center{
+  text-align: center;
+}
 </style>

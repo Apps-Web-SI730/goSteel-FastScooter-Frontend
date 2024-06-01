@@ -1,10 +1,9 @@
 <script >
-import { LoginService } from '@/core/fast-scooter/iam/services/user-service.js'
-import FakeToolbar from '@/core/fast-scooter/components/fake-toolbar.vue'
+import { LoginService } from '@/core/fast-scooter/iam/services/user-service.js';
 
 export default {
   name: 'login-content',
-  components: { FakeToolbar },
+  components: {  },
   data() {
     return {
       email: "",
@@ -54,7 +53,6 @@ export default {
 
 
 <template>
-  <fake-toolbar/>
   <p v-if="validateLocal()"> holita de mar</p>
 
   <div class="justify-content-center flex justify-center align-items-center h-screen">

@@ -1,10 +1,9 @@
 <script>
 import { ref, computed } from 'vue';
-import FakeToolbar from '@/core/fast-scooter/components/fake-toolbar.vue'
 
 export default {
   name: 'support-client',
-  components: { FakeToolbar },
+  components: {  },
 
   setup() {
 
@@ -37,8 +36,6 @@ export default {
 </script>
 
 <template>
-
-  <fake-toolbar/>
 
   <div class="text-center w-27rem mx-auto">
     <h2>{{$t('support-us-title')}}</h2>
