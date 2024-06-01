@@ -1,6 +1,6 @@
 <script>
 export default {
-  name: 'home-us',
+  name: 'home-hero-section',
 
   data() {
     return {
@@ -38,7 +38,7 @@ export default {
     <div class="first-part">
       <div>
         <h1 class="font-semibold text-900"><span class="text-orange-500">Fast</span>Scooter</h1>
-        <p>{{ $t('about-content') }}</p>
+        <p>{{ $t('home-about-content') }}</p>
         <!--        <div class="buttons"></div>-->
       </div>
     </div>
