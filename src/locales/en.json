@@ -19,5 +19,17 @@
 
   "PageNotFound": "Error 404",
   "PageNotFoundMessage": "Sorry, the page you are looking for does not exist.",
-  "PageNotFoundButton": "Back to home"
+  "PageNotFoundButton": "Back to home",
+  "about-us": "About Us",
+  "contact-us": "Contact Us",
+  "home": "Home",
+  "scooters": "Scooters",
+  "search-scooter": "Search Scooters",
+  "favorite-scooters": "Favorite Scooters",
+  "support-client": "Support Client",
+  "my-reservation": "My Reservations",
+  "settings": "Settings",
+  "logout": "Log Out",
+  "access-user": "User Access",
+  "check-out": "Checkout"
 }

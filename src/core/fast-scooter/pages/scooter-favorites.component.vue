@@ -1,8 +1,10 @@
 <script>
 import FavoritesService from "@/core/fast-scooter/services/favorites.service.js";
+import TheHeaderContent from '@/core/public/components/the-header-content.component.vue'
 
 export default {
   name: 'scooter-favorites.component',
+  components: { TheHeaderContent },
 
   data() {
     return {
@@ -40,6 +42,7 @@ export default {
 </script>
 
 <template>
+  <the-header-content></the-header-content>
   <h1>scooter favorites working!</h1>
   <div class="card">
     <pv-data-view :value="favorites">

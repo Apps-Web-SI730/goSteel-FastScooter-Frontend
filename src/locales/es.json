@@ -18,5 +18,18 @@
   "home-send": "Enviar",
   "PageNotFound": "Error 404",
   "PageNotFoundMessage": "Lo sentimos, la página que buscas no existe.",
-  "PageNotFoundButton": "Volver a la página principal"
+  "PageNotFoundButton": "Volver a la página principal",
+  "about-us": "Sobre Nosotros",
+  "contact-us": "Contáctanos",
+  "home": "Inicio",
+  "scooters": "Scooters",
+  "search-scooter": "Buscar Scooters",
+  "favorite-scooters": "Scooters Favoritos",
+  "support-client": "Soporte al Cliente",
+  "my-reservation": "Mis Reservaciones",
+  "settings": "Configuraciones",
+  "logout": "Cerrar Sesión",
+  "access-user": "Acceso de Usuario",
+  "login": "Iniciar Sesión",
+  "check-out": "Pagar Reserva"
 }

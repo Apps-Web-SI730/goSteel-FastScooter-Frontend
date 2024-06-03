@@ -67,7 +67,7 @@ export default {
 .first-part {
   display: flex;
   align-items: center;
-  padding: 20px;
+  padding: 0 20px 0 60px;
 }
 
 .first-part div {
