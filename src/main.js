@@ -26,6 +26,15 @@ import DataView from 'primevue/dataview';
 import DataViewLayoutOptions from 'primevue/dataviewlayoutoptions'
 import IconField from 'primevue/iconfield';
 import InputIcon from 'primevue/inputicon';
+import Dropdown from 'primevue/dropdown';
+import SelectButton from 'primevue/selectbutton'
+import Avatar from 'primevue/avatar'
+import PanelMenu from 'primevue/panelmenu';
+import Badge from 'primevue/badge';
+import Sidebar from 'primevue/sidebar';
+import Fieldset from 'primevue/fieldset'
+
+
 
 const app = createApp(App)
 
@@ -48,5 +57,12 @@ app
     .component('pv-data-view-options',DataViewLayoutOptions)
     .component('pv-icon-filed',IconField)
     .component('pv-input-icon',InputIcon)
+    .component('pv-dropdown',Dropdown)
+    .component('pv-select-button',SelectButton)
+    .component('pv-avatar',Avatar)
+    .component('pv-panel-menu',PanelMenu)
+    .component('pv-badge',Badge)
+    .component('pv-sidebar',Sidebar)
+    .component('pv-fieldset',Fieldset)
 
     .mount('#app')

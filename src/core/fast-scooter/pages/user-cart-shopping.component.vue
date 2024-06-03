@@ -2,9 +2,11 @@
 import UsersService from "@/core/fast-scooter/services/users.service.js";
 import ScootersService from "@/core/fast-scooter/services/scooters.service.js";
 import BookingsService from "@/core/fast-scooter/services/bookings.service.js";
+import TheHeaderContent from '@/core/public/components/the-header-content.component.vue'
 
 export default {
   name: "user-cart-shopping.component",
+  components: { TheHeaderContent },
   data(){
     return{
       userId: 1,
@@ -57,6 +59,7 @@ export default {
 </script>
 
 <template>
+  <the-header-content></the-header-content>
   <h1>Your Rented Scooters</h1>
   <div class="rental-summary-container">
 
@@ -147,6 +150,7 @@ li{
   flex-direction: column;
 
 }
+
 
 
 </style>

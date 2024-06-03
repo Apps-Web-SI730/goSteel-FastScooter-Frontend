@@ -1,4 +1,5 @@
 <template>
+  <the-header-content></the-header-content>
   <div class="user-profile-update-container">
     <div class="center-content">
       <div class="profile-picture">
@@ -36,9 +37,11 @@
 <script>
 import UserProfileButton from "@/core/fast-scooter/components/user-profile-button.component.vue";
 import axios from 'axios'
+import TheHeaderContent from '@/core/public/components/the-header-content.component.vue'
 export default {
 name: 'UserProfileUpdate',
   components: {
+    TheHeaderContent,
   UserProfileButton
 },
 data() {
@@ -66,7 +69,7 @@ methods: {
   saveProfile() {
     if (this.user.phone.length === 9) {
       axios.put('http://localhost:3000/users/1', this.user)
-        .then(response => {
+        .then(() => {
           alert('Perfil actualizado correctamente');
           this.$router.push('/user-profile');
         })

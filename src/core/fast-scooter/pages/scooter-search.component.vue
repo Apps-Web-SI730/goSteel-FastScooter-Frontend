@@ -1,9 +1,11 @@
 <script>
 import ScootersService from "@/core/fast-scooter/services/scooters.service.js";
+import TheHeaderContent from '@/core/public/components/the-header-content.component.vue'
 
 
 export default {
   name: 'scooter-search.component',
+  components: { TheHeaderContent },
 
   data() {
     return {
@@ -29,6 +31,7 @@ export default {
 </script>
 
 <template>
+  <the-header-content></the-header-content>
   <h1>scooter-search working!</h1>
   <pv-button icon="pi pi-shopping-cart" outlined></pv-button >
   <div class="card">
@@ -56,7 +59,7 @@ export default {
                   </div>
                   <div class="surface-100 p-1" style="border-radius: 30px">
                     <div class="surface-0 flex align-items-center gap-2 justify-content-center py-1 px-2"
-                         style="border-radius: 30px; box-shadow: 0px 1px 2px 0px rgba(0, 0, 0, 0.04), 0px 1px 2px 0px rgba(0, 0, 0, 0.06)">
+                         style="border-radius: 30px; box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.04), 0 1px 2px 0 rgba(0, 0, 0, 0.06)">
                       <span class="text-900 font-medium text-sm">5</span>
                       <i class="pi pi-star-fill text-yellow-500"></i>
                     </div>
@@ -95,7 +98,7 @@ export default {
                   </div>
                   <div class="surface-100 p-1" style="border-radius: 30px">
                     <div class="surface-0 flex align-items-center gap-2 justify-content-center py-1 px-2"
-                         style="border-radius: 30px; box-shadow: 0px 1px 2px 0px rgba(0, 0, 0, 0.04), 0px 1px 2px 0px rgba(0, 0, 0, 0.06)">
+                         style="border-radius: 30px; box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.04), 0 1px 2px 0 rgba(0, 0, 0, 0.06)">
                       <span class="text-900 font-medium text-sm">5</span>
                       <i class="pi pi-star-fill text-yellow-500"></i>
                     </div>

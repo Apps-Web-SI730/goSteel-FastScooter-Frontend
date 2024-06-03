@@ -1,4 +1,5 @@
 <template>
+  <the-header-content></the-header-content>
   <div class="user-profile-container">
     <div class="profile-info-container">
       <div class="profile-info">
@@ -21,9 +22,11 @@
 <script>
 import axios from 'axios'
 import UserProfileButton from "@/core/fast-scooter/components/user-profile-button.component.vue";
+import TheHeaderContent from '@/core/public/components/the-header-content.component.vue'
 export default {
 name: 'UserProfile',
   components: {
+    TheHeaderContent,
   UserProfileButton
 },
 data() {

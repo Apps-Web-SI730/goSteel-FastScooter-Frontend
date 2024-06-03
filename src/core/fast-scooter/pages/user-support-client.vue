@@ -1,9 +1,10 @@
 <script>
 import { ref, computed } from 'vue';
+import TheHeaderContent from '@/core/public/components/the-header-content.component.vue'
 
 export default {
   name: 'support-client',
-  components: {  },
+  components: { TheHeaderContent },
 
   setup() {
 
@@ -36,7 +37,7 @@ export default {
 </script>
 
 <template>
-
+<the-header-content></the-header-content>
   <div class="text-center w-27rem mx-auto">
     <h2>{{$t('support-us-title')}}</h2>
 

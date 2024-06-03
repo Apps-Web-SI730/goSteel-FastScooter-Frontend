@@ -1,10 +1,12 @@
 <script>
 import BookingsService from '@/core/fast-scooter/services/bookings.service.js'
+import TheHeaderContent from '@/core/public/components/the-header-content.component.vue'
 
 
 export default {
-  name: 'scooter-booking.component.vue',
+  name: 'scooter-booking',
   components: {
+    TheHeaderContent
     // Import components here
   },
 
@@ -25,13 +27,15 @@ export default {
 </script>
 
 <template>
-  <div class="grid grid-nogutter">
+  <the-header-content></the-header-content>
+  <!--<div class="grid grid-nogutter">
     <div v-for="(item, index) in slotProps().items" :key="index" class="col-12">
       <div class="flex flex-column sm:flex-row sm:align-items-center p-4 gap-3" :class="{ 'border-top-1 surface-border': index !== 0 }">
         <div class="md:w-10rem relative">
-          <img class="" :src="item.image" :alt="item.name"  width="400" height="400"/>
+          <img class="" :src="item.image" :alt="item.name"  width="400" height="400"/>-->
           <!--                <Tag :value="item.inventoryStatus" :severity="getSeverity(item)" class="absolute" style="left: 4px; top: 4px"></Tag>-->
-        </div>
+
+      <!--</div>
         <div class="flex flex-column md:flex-row justify-content-between md:align-items-center flex-1 gap-4">
           <div class="flex flex-row md:flex-column justify-content-between align-items-start gap-2">
             <div>
@@ -58,6 +62,7 @@ export default {
       </div>
     </div>
   </div>
+  -->
 
 </template>
 

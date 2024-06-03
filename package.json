@@ -21,7 +21,8 @@
     "typeface-nunito": "^1.1.13",
     "vue": "^3.4.21",
     "vue-i18n": "^9.13.1",
-    "vue-router": "^4.3.2"
+    "vue-router": "^4.3.2",
+    "vuetify": "^3.6.8"
   },
   "devDependencies": {
     "@rushstack/eslint-patch": "^1.8.0",
