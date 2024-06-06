@@ -24,7 +24,10 @@ export default {
     filterScooters() {
       const searchTerm = this.searchTerm.toLowerCase().trim();
       this.filteredScooters = this.scooters.filter(scooter =>
-          (scooter.brand.toLowerCase().includes(searchTerm) || scooter.description.toLowerCase().includes(searchTerm)));
+        (scooter.brand.toLowerCase().includes(searchTerm) || scooter.description.toLowerCase().includes(searchTerm)));
+    },
+    navigateToCart() {
+      this.$router.push('/cart-shopping');
     }
   }
 }
@@ -32,13 +35,18 @@ export default {
 
 <template>
   <the-header-content></the-header-content>
-  <h1>scooter-search working!</h1>
-  <pv-button icon="pi pi-shopping-cart" outlined></pv-button >
+  <div style="display: flex">
+    <h1 class="p-3">{{$t('catalogue')}}</h1>
+    <div class="icon-cart" style="display: flex; justify-content: flex-end; flex-grow: 1;">
+      <pv-button icon="pi pi-shopping-cart" outlined @click="navigateToCart()" ></pv-button >
+    </div>
+  </div>
+
   <div class="card">
     <pv-data-view :value="filteredScooters" :layout="layout">
       <template #header>
         <div class="flex justify-content-end">
-          <pv-input-text v-model="searchTerm" placeholder="Search scooter" @input="filterScooters"/>
+          <pv-input-text v-model="searchTerm" :placeholder="$t('search-scooter')" @input="filterScooters"/>
           <pv-data-view-options v-model="layout"/>
         </div>
       </template>
@@ -69,7 +77,7 @@ export default {
                   <span class="text-xl font-semibold text-900">${{ item.price }}</span>
                   <div class="flex flex-row-reverse md:flex-row gap-2">
                     <pv-button icon="pi pi-heart" outlined></pv-button>
-                    <pv-button icon="pi pi-shopping-cart" label="Buy Now"></pv-button>
+                    <pv-button icon="pi pi-shopping-cart" :label="$t('cta')"></pv-button>
                   </div>
                 </div>
               </div>
@@ -107,7 +115,7 @@ export default {
                 <div class="flex flex-column gap-4 mt-4">
                   <span class="text-2xl font-semibold text-900">${{ item.price }}</span>
                   <div class="flex gap-2">
-                    <pv-button icon="pi pi-shopping-cart" label="Buy now"></pv-button>
+                    <pv-button icon="pi pi-shopping-cart" :label="$t('cta')"></pv-button>
                     <pv-button icon="pi pi-heart" outlined></pv-button>
                   </div>
                 </div>
@@ -121,5 +129,9 @@ export default {
 </template>
 
 <style scoped>
+.icon-cart{
+  justify-items: end;
+  margin: 35px 20px 20px 20px;
+}
 
 </style>

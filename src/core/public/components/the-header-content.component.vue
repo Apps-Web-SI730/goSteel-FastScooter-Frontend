@@ -221,4 +221,64 @@ h1 {
   flex-grow: 1;
 }
 
+/* Existing CSS... */
+
+/* Media query for tablets and devices with width up to 768px */
+@media (max-width: 768px) {
+  .container-toolbar {
+    flex-direction: column;
+  }
+
+  .menu-options a {
+    padding: 10px 0; /* Adjust padding as needed */
+  }
+
+  .menu-options {
+    flex-direction: column;
+  }
+
+  .button-change img {
+    width: 20px; /* Adjust size as needed */
+    height: 20px; /* Adjust size as needed */
+  }
+
+  .user-icon-button {
+    padding: 5px; /* Adjust padding as needed */
+  }
+
+  .card.justify-content-center {
+    gap: 100px; /* Adjust gap as needed */
+  }
+}
+
+/* Media query for mobile devices with width up to 480px */
+@media (max-width: 480px) {
+  .container-toolbar {
+    flex-direction: column;
+  }
+
+  .menu-options a {
+    padding: 5px 0; /* Adjust padding as needed */
+  }
+
+  .menu-options {
+    flex-direction: column;
+  }
+
+  .button-change img {
+    width: 15px; /* Adjust size as needed */
+    height: 15px; /* Adjust size as needed */
+  }
+
+  .user-icon-button {
+    padding: 3px; /* Adjust padding as needed */
+  }
+
+  .card.justify-content-center {
+    gap: 50px; /* Adjust gap as needed */
+  }
+}
+
+/* Existing CSS... */
+
 </style>
