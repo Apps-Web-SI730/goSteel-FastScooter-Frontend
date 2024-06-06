@@ -63,7 +63,7 @@ export default {
 
 <template>
   <the-header-content></the-header-content>
-  <h1>Your Rented Scooters</h1>
+  <h1 class="p-3">{{$t('cart-booking')}}</h1>
   <div class="rental-summary-container">
 
     <div v-if="reservations.length">
@@ -88,14 +88,14 @@ export default {
 
     </div>
     <div v-else>
-      <p>You don't have any past rentals.</p>
+      <p class="p-3">{{$t('cart-booking-empty')}}</p>
     </div>
   </div>
 </template>
 
 <style scoped>
 li{
-  //background: aqua;
+  /*background: aqua;*/
   border: 1px solid #ddd;
 
 }

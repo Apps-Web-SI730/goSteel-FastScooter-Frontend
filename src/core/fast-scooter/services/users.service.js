@@ -27,7 +27,7 @@ class UsersApiService {
     return this.getUser(id);
   }
 
-  getUserFromResponse(response) {
+  /*getUserFromResponse(response) {
     return new User(
       response.id,
       response.name,
@@ -36,7 +36,7 @@ class UsersApiService {
       response.company,
       response.role
     );
-  }
+  }**/
 
 }
 

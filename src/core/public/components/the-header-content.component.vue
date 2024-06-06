@@ -127,8 +127,15 @@ export default {
                 {{ $t('about-us') }}
               </router-link>
             </a>
-            <br><br><br><br><br><br><br><br><br><br><br><br><br><br>
-            <br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+            <br><br>
+            <a>
+              <router-link to="/payment-method/:id" class="text-black-100">
+                <i class="pi pi-credit-card"></i>
+                {{ $t('dialog-payment') }}
+              </router-link>
+            </a>
+            <br><br><br><br><br><br><br><br><br><br><br><br><br>
+            <br><br><br><br><br><br><br><br><br><br><br><br><br>
             <span class="space"/>
             <a @click="handleLogout" class="text-black-100">
             <i class="pi pi-sign-out"></i>

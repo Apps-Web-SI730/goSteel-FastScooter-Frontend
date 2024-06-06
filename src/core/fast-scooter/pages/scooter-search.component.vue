@@ -28,6 +28,9 @@ export default {
     },
     navigateToCart() {
       this.$router.push('/cart-shopping');
+    },
+    navigateToScooterDetails(scooterId) {
+      this.$router.push(`/search-scooter/${scooterId}`);
     }
   }
 }
@@ -117,7 +120,7 @@ export default {
                   <div class="flex gap-2">
 <!--                    <pv-button icon="pi pi-shopping-cart" :label="$t('cta')"></pv-button>-->
                     <router-link :to="`/search-scooter/${item.id}`">
-                      <pv-button icon="pi pi-shopping-cart" :label="$t('cta')"></pv-button>
+                      <pv-button icon="pi pi-shopping-cart" :label="$t('cta') "></pv-button>
                     </router-link>
                     <pv-button icon="pi pi-heart" outlined></pv-button>
                   </div>

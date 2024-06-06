@@ -43,7 +43,7 @@ export default {
 
 <template>
   <the-header-content></the-header-content>
-  <h1>scooter favorites working!</h1>
+  <h1 class="p-3">{{$t('fav-tittle')}}</h1>
   <div class="card">
     <pv-data-view :value="favorites">
       <template #list="slotProps">
@@ -70,7 +70,7 @@ export default {
                   <span class="text-xl font-semibold text-900">${{ item.price }}</span>
                   <div class="flex flex-row-reverse md:flex-row gap-2">
                     <pv-button icon="pi pi-heart" @click="deleteFavorites(item.id)"></pv-button>
-                    <pv-button icon="pi pi-shopping-cart" label="Buy Now"></pv-button>
+                    <pv-button icon="pi pi-shopping-cart" :label="$t('cta')"></pv-button>
                   </div>
                 </div>
               </div>

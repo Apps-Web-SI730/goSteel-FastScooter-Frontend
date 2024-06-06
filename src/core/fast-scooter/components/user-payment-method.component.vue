@@ -1,9 +1,11 @@
 <script>
 import {required, email, minLength} from '@vuelidate/validators'
 import {useVuelidate} from '@vuelidate/core'
+import TheHeaderContent from '@/core/public/components/the-header-content.component.vue'
 
 export default {
   name: 'user-payment-method.component',
+  components: { TheHeaderContent },
 
   data() {
     return {
@@ -42,6 +44,7 @@ export default {
 </script>
 
 <template>
+  <the-header-content></the-header-content>
   <div class="container">
     <form>
       <div class="row">

@@ -55,5 +55,11 @@
     "cart-empty": "No tienes ningún scooter rentado.",
   "payment-title": "Resumen de pagos",
   "payment-now": "Pagar ahora",
-  "payment-cancel": "Continuar Rentando"
+  "payment-cancel": "Continuar Rentando",
+  "fav-tittle": "Tus Scooters Favoritos",
+  "cart-booking": "Tus Scooters Reservados",
+    "cart-booking-empty": "No tienes ningún scooter reservado.",
+  "rent-success": "Scooter reservado correctamente!",
+  "price-total": "Precio Total",
+  "dialog-payment": "Añadir Método de Pago"
 }

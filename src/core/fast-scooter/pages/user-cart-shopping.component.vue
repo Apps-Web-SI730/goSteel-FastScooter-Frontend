@@ -132,7 +132,7 @@ export default {
 <style scoped>
 
 li{
-  //background: aqua;
+  /*background: aqua;*/
   border: 1px solid #ddd;
 
 }

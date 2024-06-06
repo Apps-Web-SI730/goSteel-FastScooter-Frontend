@@ -1,21 +1,5 @@
-<script setup>
-import { ref } from "vue";
-const value2 = ref(1)
-const icondisplay = ref();
-const templatedisplay = ref();
-const loading = ref(false);
-const showSuccessMessage = ref(false);
-const value = ref(4);
-const load = () => {
-  loading.value = true;
-  setTimeout(() => {
-    loading.value = false;
-    showSuccessMessage.value = true;
-  }, 2000);
-};
-</script>
-
 <script>
+import { ref } from "vue";
 import BookingsService from "@/core/fast-scooter/services/bookings.service.js";
 import ScootersService from "@/core/fast-scooter/services/scooters.service.js";
 import TheHeaderContent from "@/core/public/components/the-header-content.component.vue";
@@ -26,6 +10,12 @@ export default {
   data(){
     return {
       scooter:null,
+      value2: ref(1),
+      icondisplay: ref(),
+      templatedisplay: ref(),
+      loading: ref(false),
+      showSuccessMessage: ref(false),
+      value: ref(4),
     }
   },
   created() {
@@ -63,10 +53,19 @@ export default {
         console.error('Error adding scooter to JSON-server:', error);
       }
 
+    },
+
+    load() {
+      this.loading.value = true;
+      setTimeout(() => {
+        this.loading.value = false;
+        this.showSuccessMessage.value = true;
+      }, 2000);
     }
   }
 }
 </script>
+
 
 <template>
   <the-header-content></the-header-content>
@@ -105,17 +104,17 @@ export default {
           </div>
         </div>
         <h2>Entrega:</h2>
-        <pv-message severity="success" v-if="showSuccessMessage">Scooter reservado correctamente</pv-message>
+        <pv-message severity="success" v-if="showSuccessMessage">{{$t('rent-success')}}</pv-message>
         <pv-rating v-model="value" readonly :cancel="false" />
         <i class="pi pi-comment" style="font-size: 2.5rem"></i>
       </div>
       <div class="footer-price">
         <pv-tab-view>
-          <pv-tab-panel header="Precio Total">
+          <pv-tab-panel :header="$t('price-total')">
             <h2>$ {{ scooter.price }}</h2>
           </pv-tab-panel>
         </pv-tab-view>
-        <pv-button type="button" label="Rentar ahora" @click=loadBooking() class="button-buy" />
+        <pv-button type="button" :label="$t('cta')" @click=loadBooking() class="button-buy" />
 
         <!--        <pv-button type="button" label="Rentar ahora"  :loading="loading" @click="load" class="button-buy" />-->
       </div>
@@ -126,7 +125,7 @@ export default {
 
 <style scoped>
 .container-details{
-//background-color: aqua;
+/*background-color: aqua;*/
   max-width: 1500px;
   margin: 0 auto;
   display: flex;
