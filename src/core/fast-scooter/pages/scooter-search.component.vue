@@ -69,7 +69,7 @@ export default {
                   <span class="text-xl font-semibold text-900">${{ item.price }}</span>
                   <div class="flex flex-row-reverse md:flex-row gap-2">
                     <pv-button icon="pi pi-heart" outlined></pv-button>
-                    <pv-button icon="pi pi-shopping-cart" label="Buy Now"></pv-button>
+                    <pv-button icon="pi pi-shopping-cart" label="Rent Now"></pv-button>
                   </div>
                 </div>
               </div>
@@ -107,7 +107,10 @@ export default {
                 <div class="flex flex-column gap-4 mt-4">
                   <span class="text-2xl font-semibold text-900">${{ item.price }}</span>
                   <div class="flex gap-2">
-                    <pv-button icon="pi pi-shopping-cart" label="Buy now"></pv-button>
+<!--                    <pv-button icon="pi pi-shopping-cart" label="Buy now"></pv-button>-->
+                    <router-link :to="`/search-scooter/${item.id}`">
+                      <pv-button icon="pi pi-shopping-cart" label="Rent now"></pv-button>
+                    </router-link>
                     <pv-button icon="pi pi-heart" outlined></pv-button>
                   </div>
                 </div>

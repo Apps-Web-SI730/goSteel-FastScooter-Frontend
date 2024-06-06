@@ -5,7 +5,10 @@
       "username": "User",
       "email": "email@email.com",
       "password": "password123",
-      "cart": ["1","2"],
+      "cart": [
+        "1",
+        "2"
+      ],
       "bookings": [
         {
           "scooterId": "1",
@@ -111,6 +114,30 @@
       "duration": 2,
       "pickZone": "Zone A",
       "priceTotal": 300
+    },
+    {
+      "userId": 1,
+      "scooterId": "5",
+      "duration": 2,
+      "pickZone": "Zone C",
+      "priceTotal": 130,
+      "id": "LY9BkU8"
+    },
+    {
+      "userId": "2",
+      "scooterId": "5",
+      "duration": 2,
+      "pickZone": "Zone C",
+      "priceTotal": 130,
+      "id": "hHqXOMf"
+    },
+    {
+      "userId": "2",
+      "scooterId": "4",
+      "duration": 2,
+      "pickZone": "Zone C",
+      "priceTotal": 110,
+      "id": "7ACIerV"
     }
   ],
   "scooters": [
@@ -166,20 +193,15 @@
       "image": "https://placehold.co/400"
     }
   ],
-  "favorites": [
+  "favorites": [],
+  "reservations": [
     {
-      "id": "3",
-      "brand": "Yet Another Brand",
-      "description": "Lorem Ipsum consectetur adipiscing elit",
-      "price": 150,
-      "image": "https://coolboxpe.vtexassets.com/arquivos/ids/333953/HN-FS031_1.jpg?v=638382761849830000"
-    },
-    {
-      "id": "4",
-      "brand": "New Brand",
-      "description": "Lorem Ipsum dolor sit amet",
-      "price": 110,
-      "image": "https://www.alphaproscooters.com/cdn/shop/products/root-industries-type-r-pro-scooter-rocket-fuel-completes-root-industries-845351.jpg?v=1613577247"
+      "userId": 1,
+      "scooterId": "2",
+      "duration": 2,
+      "pickZone": "Zone B",
+      "priceTotal": 250,
+      "id": 1
     }
   ],
   "paymentData": [

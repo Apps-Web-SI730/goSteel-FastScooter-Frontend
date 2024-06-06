@@ -34,6 +34,11 @@ export const routes = [
     component: () => import("@/core/fast-scooter/pages/scooter-search.component.vue")
   },
   {
+    path: "/search-scooter/:scooterID",
+    name: "Scooters Details",
+    component: () => import("@/core/fast-scooter/pages/scooter-details.component.vue")
+  },
+  {
     path: "/user-update",
     name: "Update User",
     component: UserProfileUpdateComponent,

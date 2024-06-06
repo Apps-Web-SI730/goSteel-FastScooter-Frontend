@@ -33,6 +33,8 @@ import PanelMenu from 'primevue/panelmenu';
 import Badge from 'primevue/badge';
 import Sidebar from 'primevue/sidebar';
 import Fieldset from 'primevue/fieldset'
+import InputNumber from 'primevue/inputnumber';
+import Message from 'primevue/message';
 
 
 
@@ -64,5 +66,8 @@ app
     .component('pv-badge',Badge)
     .component('pv-sidebar',Sidebar)
     .component('pv-fieldset',Fieldset)
+    .component('pv-input-number',InputNumber)
+    .component('pv-message',Message)
+
 
     .mount('#app')
