@@ -1,6 +1,8 @@
 <script>
-import BookingsService from '@/core/fast-scooter/services/bookings.service.js'
 import TheHeaderContent from '@/core/public/components/the-header-content.component.vue'
+import ReservationsService from "@/core/fast-scooter/services/reservations.service.js";
+import BookingsService from "@/core/fast-scooter/services/bookings.service.js";
+import ScootersService from "@/core/fast-scooter/services/scooters.service.js";
 
 
 export default {
@@ -9,18 +11,51 @@ export default {
     TheHeaderContent
     // Import components here
   },
+  data() {
+    return {
+      reservations: [],
+      scooters: {},
+    };
+  },
+  created() {
+    if (typeof (Storage) !== 'undefined') {
+      console.log(Storage);
+      sessionStorage.setItem("usuario", "1");
+    }
 
+    this.fetchBookings();
+  },
   async mounted() {
     try {
-      const response = await BookingsService.getAllBookings();
-      this.scooters = response.data;
+      const response = await ReservationsService.getAllReservations();
+      this.reservations = response.data;
       this.$forceUpdate();
-      console.log(this.scooters);
+      console.log(this.reservations);
     } catch (error) {
       console.log(error);
     }
   },
+  methods: {
 
+
+    async fetchBookings() {
+      try {
+        // const response = await BookingsService.getBookingsByUser(this.userId);
+        const response = await ReservationsService.getReservationsByUser(sessionStorage.getItem("usuario"));
+        this.reservations = response.data;
+
+        for (const reservation of this.reservations) {
+          const scooterId = reservation.scooterId;
+          const scooterData = await ScootersService.getScooterById(scooterId);
+          this.scooters[scooterId] = scooterData;
+          console.log(this.scooters[scooterId].data);
+        }
+        console.log(this.bookings);
+      } catch (error) {
+        console.log(error);
+      }
+    }
+  }
   // Add your methods here
 }
 
@@ -28,44 +63,80 @@ export default {
 
 <template>
   <the-header-content></the-header-content>
-  <!--<div class="grid grid-nogutter">
-    <div v-for="(item, index) in slotProps().items" :key="index" class="col-12">
-      <div class="flex flex-column sm:flex-row sm:align-items-center p-4 gap-3" :class="{ 'border-top-1 surface-border': index !== 0 }">
-        <div class="md:w-10rem relative">
-          <img class="" :src="item.image" :alt="item.name"  width="400" height="400"/>-->
-          <!--                <Tag :value="item.inventoryStatus" :severity="getSeverity(item)" class="absolute" style="left: 4px; top: 4px"></Tag>-->
+  <h1>Your Rented Scooters</h1>
+  <div class="rental-summary-container">
 
-      <!--</div>
-        <div class="flex flex-column md:flex-row justify-content-between md:align-items-center flex-1 gap-4">
-          <div class="flex flex-row md:flex-column justify-content-between align-items-start gap-2">
-            <div>
-              <span class="font-medium text-secondary text-sm">{{ item.brand }}</span>
-              <div class="text-lg font-medium text-900 mt-2">{{ item.brand }}</div>
-            </div>
-            <div class="surface-100 p-1" style="border-radius: 30px">
-              <div class="surface-0 flex align-items-center gap-2 justify-content-center py-1 px-2" style="border-radius: 30px; box-shadow: 0px 1px 2px 0px rgba(0, 0, 0, 0.04), 0px 1px 2px 0px rgba(0, 0, 0, 0.06)">
-                <span class="text-900 font-medium text-sm">5</span>
-                <i class="pi pi-star-fill text-yellow-500"></i>
-              </div>
-            </div>
-          </div>
-          <div class="flex flex-column md:align-items-end gap-5">
-            <span class="text-xl font-semibold text-900">${{ item.price }}</span>
-            <div class="flex flex-row-reverse md:flex-row gap-2">
-              <Button icon="pi pi-heart-fill" outlined @click="deleteBooking(item.id)"></Button>
-              <router-link :to="`/search-scooter/${item.id}`">
-                <Button icon="pi pi-shopping-cart" label="Buy Now" :disabled="item.inventoryStatus === 'OUTOFSTOCK'" class="flex-auto md:flex-initial white-space-nowrap"></Button>
-              </router-link>
+    <div v-if="reservations.length">
+      <ul class="rented-scooters-list">
+        <li v-for="reservation in reservations" :key="reservations.id">
+          <div class="scooter-details">
+            <img :src="scooters[reservation.scooterId].data.image" alt="Scooter image" height="200" width="200">
+            <div class="scooter-info">
+              <p>
+                <strong>Brand:</strong> {{ reservation.id }} <br>
+                <strong>Description:</strong> {{ scooters[reservation.scooterId].data.description }}<br>
+                <strong>Price:</strong> {{ scooters[reservation.scooterId].data.price }}<br>
+                                <strong>Rental Duration:</strong> {{ reservation.duration }} hours<br>
+                                <strong>Pickup Zone:</strong> {{ reservation.pickZone }}<br>
+                                <strong>Price Total:</strong> {{ reservation.priceTotal }}
+              </p>
             </div>
           </div>
-        </div>
-      </div>
+
+          <br></li>
+      </ul>
+
+    </div>
+    <div v-else>
+      <p>You don't have any past rentals.</p>
     </div>
   </div>
-  -->
-
 </template>
 
 <style scoped>
+li{
+  //background: aqua;
+  border: 1px solid #ddd;
 
+}
+
+.rental-summary-container {
+  display: grid;
+  grid-template-columns: 1fr auto;
+
+}
+
+.rented-scooters-list {
+  list-style: none;
+  padding: 0;
+}
+
+.scooter-details {
+  display: flex;
+  margin-top: 20px;
+  width: 100%;
+}
+
+.scooter-info {
+  flex: 1;
+  padding: 10px;
+  margin-left: 10px;
+}
+
+.scooter-info p {
+  margin-bottom: 5px;
+}
+
+.scooter-info strong {
+  font-weight: bold;
+}
+
+.payment-summary {
+  margin-top: 20px;
+  border: 1px solid #ddd;
+  padding: 1rem;
+  display:flex;
+  flex-direction: column;
+
+}
 </style>

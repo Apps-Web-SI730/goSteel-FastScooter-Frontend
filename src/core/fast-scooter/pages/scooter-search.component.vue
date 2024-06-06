@@ -115,7 +115,10 @@ export default {
                 <div class="flex flex-column gap-4 mt-4">
                   <span class="text-2xl font-semibold text-900">${{ item.price }}</span>
                   <div class="flex gap-2">
-                    <pv-button icon="pi pi-shopping-cart" :label="$t('cta')"></pv-button>
+<!--                    <pv-button icon="pi pi-shopping-cart" :label="$t('cta')"></pv-button>-->
+                    <router-link :to="`/search-scooter/${item.id}`">
+                      <pv-button icon="pi pi-shopping-cart" :label="$t('cta')"></pv-button>
+                    </router-link>
                     <pv-button icon="pi pi-heart" outlined></pv-button>
                   </div>
                 </div>

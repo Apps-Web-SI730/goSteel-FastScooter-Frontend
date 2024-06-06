@@ -3,6 +3,7 @@ import UsersService from "@/core/fast-scooter/services/users.service.js";
 import ScootersService from "@/core/fast-scooter/services/scooters.service.js";
 import BookingsService from "@/core/fast-scooter/services/bookings.service.js";
 import TheHeaderContent from '@/core/public/components/the-header-content.component.vue'
+import ReservationsService from "@/core/fast-scooter/services/reservations.service.js";
 
 export default {
   name: "user-cart-shopping.component",
@@ -48,6 +49,29 @@ export default {
       } catch (error) {
         console.error("Error deleting booking:", bookingId, error);
       }
+    },
+    async payForRentals() {
+      try {
+        // Add logic to create reservations for each rented scooter
+        for (const booking of this.bookings) {
+          const reservationData = {
+            userId: this.userId,
+            scooterId: booking.scooterId,
+            duration: booking.duration,
+            pickZone: booking.pickZone,
+            priceTotal: booking.priceTotal,
+          };
+          await ReservationsService.addReservation(reservationData); // Call BookingsService to create reservation
+        }
+
+        // Clear bookings and scooter data after successful payment
+        this.bookings = [];
+        this.scooters = {};
+        console.log("Payment successful! Reservations created.");
+
+      } catch (error) {
+        console.error("Error creating reservations:", error);
+      }
     }
   },
   computed:{
@@ -92,8 +116,10 @@ export default {
     <div class="payment-summary">
       <h1>{{$t('payment-title')}}</h1>
       <p>Total: ${{ totalPrice }}</p>
-      <pv-button :label="$t('payment-now')"></pv-button>
+
+      <pv-button :label="$t('payment-now')" @click="payForRentals()"></pv-button>
       <pv-button :label="$t('payment-cancel')" outlined></pv-button>
+      
       <!--      <router-link to="/scooter-search">-->
 <!--        <pv-button label="Continue renting" outlined></pv-button>-->
 <!--      </router-link>-->
@@ -106,7 +132,7 @@ export default {
 <style scoped>
 
 li{
-  background: aqua;
+  //background: aqua;
   border: 1px solid #ddd;
 
 }
