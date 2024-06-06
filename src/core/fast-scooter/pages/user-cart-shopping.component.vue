@@ -84,7 +84,7 @@ export default {
 
 <template>
   <the-header-content></the-header-content>
-  <h1>Your Rented Scooters</h1>
+  <h1 class="p-3">{{$t('cart-title')}}</h1>
   <div class="rental-summary-container">
 
     <div v-if="bookings.length">
@@ -110,14 +110,16 @@ export default {
 
     </div>
     <div v-else>
-      <p>You don't have any past rentals.</p>
+      <p class="p-4">{{$t('cart-empty')}}</p>
     </div>
 
     <div class="payment-summary">
-      <h1>Payment Summary</h1>
+      <h1>{{$t('payment-title')}}</h1>
       <p>Total: ${{ totalPrice }}</p>
-      <pv-button label="Pay now" @click="payForRentals()"></pv-button>
-      <pv-button label="Continue renting" outlined></pv-button>
+
+      <pv-button :label="$t('payment-now')" @click="payForRentals()"></pv-button>
+      <pv-button :label="$t('payment-cancel')" outlined></pv-button>
+      
       <!--      <router-link to="/scooter-search">-->
 <!--        <pv-button label="Continue renting" outlined></pv-button>-->
 <!--      </router-link>-->
@@ -167,9 +169,10 @@ li{
 }
 
 .payment-summary {
-  margin-top: 20px;
-  border: 1px solid #ddd;
-  padding: 1rem;
+  margin: 20px;
+  border: 1px solid seagreen;
+  border-radius: 30px;
+  padding: 2rem 3rem 2rem 3rem;
   display:flex;
   flex-direction: column;
 
