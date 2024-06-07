@@ -18,6 +18,10 @@ class BookingsApiService {
     return http.put(`/bookings/${booking.id}`, booking)
   }
 
+  getBookingsByUser(userId){
+    return http.get(`/users/${userId}/bookings`)
+  }
+
   deleteBooking(bookingId) {
     return http.delete(`/bookings/${bookingId}`)
   }
