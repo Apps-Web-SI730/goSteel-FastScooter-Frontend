@@ -1,0 +1,12 @@
+{
+  "users": [
+    {
+      "id": "1",
+      "firstName": "aasdad",
+      "lastName": "Cavill",
+      "phone": "942431232",
+      "email": "hola@gmail.com",
+      "profilePicture": "https://es.web.img3.acsta.net/c_310_420/pictures/210/127/21012705_2013061512270994.jpg"
+    }
+  ]
+}
