@@ -56,28 +56,28 @@ export default {
   <div class="container">
     <form @submit.prevent="addPaymentMethod">
       <div class="row">
-        <h1 class="title">Métodos de pago</h1>
+        <h1 class="title">{{$t('pay-method')}}</h1>
 
         <div class="col">
           <div class="inputBox">
-            <label for="name_of_user">Nombre completo</label>
+            <label for="name_of_user">{{$t('n-dialog')}}</label>
             <input
               v-model="PaymentData.name"
               type="text"
               id="name_of_user"
-              placeholder="Example Name: John Doe"
+              :placeholder="$t('n-dialog-content')"
               required
             />
-            <div v-if="v$.PaymentData.name_of_user.$error" class="error">Nombre Completo es requerido</div>
+            <div v-if="v$.PaymentData.name_of_user.$error" class="error">{{$t('n-required')}}</div>
           </div>
 
           <div class="inputBox">
-            <label for="card">Tarjetas que aceptamos</label>
+            <label for="card">{{$t('cards')}}</label>
             <img src="@/assets/images/payment-view/card_images.png" alt="Cards accepted for payment" />
           </div>
 
           <div class="inputBox">
-            <label for="num_card">Número de tarjeta</label>
+            <label for="num_card">{{$t('card-number')}}</label>
             <input
               v-model="PaymentData.num_card"
               type="text"
@@ -88,45 +88,45 @@ export default {
           </div>
 
           <div class="inputBox">
-            <label for="name_card">Nombre de su tarjeta</label>
+            <label for="name_card">{{$t('card-name')}}</label>
             <input
               v-model="PaymentData.name_card"
               type="text"
               id="name_card"
-              placeholder="Example card name"
+              :placeholder="$t('card-name-content')"
               required
             />
           </div>
 
           <div class="inputBox">
-            <label for="email">Correo electrónico</label>
+            <label for="email">{{$t('email')}}</label>
             <input
               v-model="PaymentData.email"
               type="email"
               id="email"
-              placeholder="example@example.com"
+              :placeholder="$t('e-example')"
               required
             />
           </div>
 
           <div class="flex">
             <div class="inputBox">
-              <label for="exp_year">Año de exp</label>
+              <label for="exp_year">{{$t('y-exp')}}</label>
               <input
                 v-model="PaymentData.exp_year"
                 type="text"
                 id="exp_year"
-                placeholder="2022"
+                :placeholder="$t('y-exp-content')"
                 required
               />
             </div>
             <div class="inputBox">
-              <label for="month_exp">Mes de exp</label>
+              <label for="month_exp">{{$t('m-exp')}}</label>
               <input
                 v-model="PaymentData.month_exp"
                 type="text"
                 id="month_exp"
-                placeholder="05"
+                :placeholder="$t('m-exp-content')"
                 required
               />
             </div>
@@ -138,14 +138,14 @@ export default {
               v-model="PaymentData.cvv"
               type="text"
               id="cvv"
-              placeholder="1234"
+              :placeholder="$t('cvv-content')"
               required
             />
           </div>
         </div>
       </div>
 
-      <button type="submit" class="submit-btn">Añadir Método de Pago</button>
+      <button type="submit" class="submit-btn" style="font-family: 'Nunito', sans-serif">{{$t('btn-pay')}}</button>
     </form>
   </div>
 </template>

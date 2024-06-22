@@ -4,7 +4,7 @@ import HomeDeveloperCardComponent from '@/core/public/components/home-developer-
 
 <template>
   <h2 id="title-team" class="text-center">
-    <span class="typing-animation">{{ $t('meet-our-team') }}</span>
+    <span class="typing-animation text-orange-800 p-10">{{ $t('meet-our-team') }}</span>
   </h2>
   <div class="card-container flex-wrap flex gap-4 justify-content-center">
   <home-developer-card-component
@@ -22,38 +22,42 @@ export default {
   data: () => ({
     developers: [
       {
-        name: 'Pietro Minaya',
-        role: 'CTO',
+        name: 'Pietro Minaya Mundines',
+        role: 'Chief Technology Office',
         image:
           'https://raw.githubusercontent.com/Apps-Web-SI730/goSteel-informe/main/assets/profile-pietro.png',
       },
       {
-        name: 'Sharon Barrial',
-        role: 'CEO',
+        name: 'Carlos Adrianzén Flores',
+        role: 'Software Developer',
         image:
-          'https://raw.githubusercontent.com/Apps-Web-SI730/goSteel-informe/main/assets/profile-sharon.png',
+          'https://raw.githubusercontent.com/Apps-Web-SI730/goSteel-informe/main/assets/profile-arturo.png',
       },
       {
-        name: 'Zkoot ',
+        name: 'Sharon Barrial Marin',
+        role: 'CEO & Project Manager',
+        image:
+          'https://media.licdn.com/dms/image/D4E03AQGB-BX7LbuMGQ/profile-displayphoto-shrink_400_400/0/1716307497851?e=1724284800&v=beta&t=8_ATfYyfSJIQxGGl_a9GpB3b8xG25lkLPKI7_nir-oY',
+      },
+      {
+        name: 'Scott Huachaca Advincula',
         role: 'Technical Leader',
         image:
           'https://raw.githubusercontent.com/Apps-Web-SI730/goSteel-informe/main/assets/profile-scott.jpg',
       },
       {
         name: 'Josue Hidalgo Bustamante',
-        role: 'Chamo Developer',
+        role: 'Software Developer',
         image:
           'https://i.imgur.com/zrpMQ7R.jpg',
-      }
-
-    ],
+      },
+      ],
   }),
 };
 </script>
 
 <style scoped>
 .typing-animation {
-  font-family: Monospace;
   font-weight: bold;
   font-size: 30px;
   margin-bottom: 40px;

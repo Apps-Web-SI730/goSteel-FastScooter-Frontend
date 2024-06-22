@@ -4,30 +4,30 @@
     <div class="center-content">
       <div class="profile-picture">
         <img :src="user.profilePicture" alt="Foto de perfil" />
-        <a href="#" class="change-photo-link" @click="openFileInput">Cambiar foto</a>
+        <a href="#" class="change-photo-link" @click="openFileInput">{{$t('change-photo')}}</a>
         <input type="file" ref="fileInput" @change="handleFileSelect" style="display: none;" accept="image/*">
       </div>
       <form @submit.prevent="saveProfile" class="user-form">
         <div class="form-group">
-          <label for="firstName">Nombres:</label>
+          <label for="firstName">{{$t('name')}}</label>
           <input type="text" id="firstName" v-model="user.firstName" />
         </div>
         <div class="form-group">
-          <label for="lastName">Apellidos:</label>
+          <label for="lastName">{{$t('lastname')}}</label>
           <input type="text" id="lastName" v-model="user.lastName" />
         </div>
         <div class="form-group">
-          <label for="phone">Celular:</label>
-          <input type="text" id="phone" v-model="user.phone" pattern="[0-9]{9}" maxlength="9" title="El número de teléfono debe tener 9 dígitos" />
-          <small class="error" v-if="phoneError">El número de telefono debe tener 9 digitos.</small>
+          <label for="phone">{{$t('phone')}}</label>
+          <input type="text" id="phone" v-model="user.phone" pattern="[0-9]{9}" maxlength="9" :title="$t('alert-1')" />
+          <small class="error" v-if="phoneError">{{$t('alert-1')}}</small>
         </div>
         <div class="form-group">
-          <label for="email">Correo:</label>
+          <label for="email">{{$t('email')}}</label>
           <input type="email" id="email" v-model="user.email" />
         </div>
         <div class="button-group">
-          <UserProfileButton label="Guardar Cambios" class="p-button-outlined save-button" type="submit" />
-          <UserProfileButton label="Cancelar" class="p-button-outlined cancel-button" @click="cancelUpdate" />
+          <UserProfileButton :label="$t('save')" class="p-button-outlined save-button" type="submit" />
+          <UserProfileButton :label="$t('cancel')" class="p-button-outlined cancel-button" @click="cancelUpdate" />
         </div>
       </form>
     </div>
@@ -106,7 +106,7 @@ methods: {
       justify-content: center;
       align-items: center;
       height: 100vh;
-      background-color: #f9f9f9;
+      background-color: lightgray;
       padding: 20px;
     }
 
@@ -161,13 +161,13 @@ methods: {
   .save-button {
     flex: 1;
     margin-right: 5px;
-    background-color: #28a745;
+    background-color: mediumseagreen;
     color: white;
   }
   .cancel-button {
     flex: 1;
     margin-left: 5px;
-  background-color: #f44336;
+  background-color: orangered;
   color: white;
   }
 

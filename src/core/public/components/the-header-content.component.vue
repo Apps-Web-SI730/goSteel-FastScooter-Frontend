@@ -40,9 +40,8 @@ export default {
     handleLogout() {
       this.loading = true;
       setTimeout(() => {
-        this.$router.push('/login');
-      }, 1000);
-      sessionStorage.removeItem("usuario");
+        this.$router.push('/');
+      }, 2000);
     },
     navigateToHome(){
       this.$router.push('/home');

@@ -39,17 +39,17 @@ export default {
 <template>
 <the-header-content></the-header-content>
   <div class="text-center w-27rem mx-auto">
-    <h2>{{$t('support-us-title')}}</h2>
+    <h2>{{$t('contact')}}</h2>
 
     <p>{{ $t('support-us-sub-title') }}</p>
 
     <form class="m-3 flex-row" v-on:submit.prevent="submitForm" :class="{ 'form-complete': !formIncomplete }">
 
-      <pv-input-text v-model="subject" placeholder="Subject" class="my-3 w-full" :class="formIncomplete ?'f-incomplete' : 'f-complete'" />
+      <pv-input-text v-model="subject" :placeholder="$t('subject')" class="my-3 w-full" :class="formIncomplete ?'f-incomplete' : 'f-complete'" />
 
-      <pv-textarea v-model="message" placeholder="Message" rows="5" class="mb-3 w-full" :class="formIncomplete ?'f-incomplete' : 'f-complete'" />
+      <pv-textarea v-model="message" :placeholder="$t('message')" rows="5" class="mb-3 w-full" :class="formIncomplete ?'f-incomplete' : 'f-complete'" />
 
-      <pv-button label="Send" type="submit" :class="formIncomplete ? 'bg-gradient-to-r from-red-500 to-red-700': 'bg-gradient-to-r from-green-500 to-blue-500 transition duration-500'" class="w-full"/>
+      <pv-button :label="$t('send')" type="submit" :class="formIncomplete ? 'bg-gradient-to-r from-red-500 to-red-700': 'bg-gradient-to-r from-green-500 to-blue-500 transition duration-500'" class="w-full"/>
     </form>
   </div>
 </template>

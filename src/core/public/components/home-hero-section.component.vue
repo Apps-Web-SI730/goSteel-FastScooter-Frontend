@@ -5,9 +5,9 @@ export default {
   data() {
     return {
       images: [
-        'https://placehold.co/500',
-        'https://placehold.co/500',
-        'https://placehold.co/500',
+        "src/assets/images/about-us/logo-brand.jpeg",
+        "src/assets/images/about-us/4a77404c-ab95-4d98-9fb3-6b86e1f7f4f1.jpeg",
+        "src/assets/images/about-us/OIG4.jpeg",
       ],
       currentImageIndex: 0,
     };
@@ -28,7 +28,7 @@ export default {
   mounted() {
     setInterval(() => {
       this.nextImage();
-    }, 10000);
+    }, 1000);
   },
 }
 </script>
@@ -37,7 +37,7 @@ export default {
   <div class="about-component">
     <div class="first-part">
       <div>
-        <h1 class="font-semibold text-900"><span class="text-orange-500">Fast</span>Scooter</h1>
+        <h1 class="font-bolder text-900"><span class="text-green-500">Fast</span>Scooter</h1>
         <p>{{ $t('home-about-content') }}</p>
         <!--        <div class="buttons"></div>-->
       </div>
@@ -46,12 +46,6 @@ export default {
     <div class="second-part">
       <div class="carousel">
         <img :src="currentImage" alt="Imagen del carrusel" />
-
-        <!--        <button class="next-button" @click="nextImage">-->
-        <!--          <div class="i-container">-->
-        <!--            <i class="fa-solid fa-angle-right" style="color: #f97316"></i>-->
-        <!--          </div>-->
-        <!--        </button>-->
       </div>
     </div>
   </div>
@@ -62,6 +56,7 @@ export default {
   margin-top: 20px;
   display: grid;
   grid-template-columns: 40% 60%;
+  font-family: 'Nunito', sans-serif;
 }
 
 .first-part {
@@ -71,7 +66,10 @@ export default {
 }
 
 .first-part div {
-  margin-right: 20px;
+  margin-right: 50px;
+  padding: 40px;
+  border-radius: 30px;
+  border: dashed 3px darkslategrey;
 }
 
 .first-part h2 {
@@ -97,7 +95,8 @@ export default {
 }
 
 .carousel img {
-  width: 100%;
+  width: 500px;
+  height:450px;
   background-color: transparent;
 }
 
