@@ -9,7 +9,6 @@
             <span class="text-600 font-medium line-height-3">{{ $t('ready') }}</span>
             <a class="font-medium no-underline ml-2 text-orange-500 cursor-pointer" href="/login">{{ $t('login') }}</a>
           </div>
-
           <div>
             <label for="username" class="block text-900 font-medium mb-2">{{ $t('username') }}</label>
             <pv-input-text id="username" type="text" class="w-full mb-3" v-model="username" />
@@ -34,7 +33,6 @@
               @click="create()"
             ></pv-button>
           </div>
-
         </div>
       </div>
     </div>
@@ -77,8 +75,11 @@ export default {
       try {
         const response = await this.userApiService.create(user);
         if (response.status === 201) {
-          alert('User created');
-          this.$router.push('/home-login'); // Cambié 'users' por '/home'
+          // dame el id del usuario creado en console log
+          console.log(response.data.id);
+          sessionStorage.setItem("usuario",response.data.id);
+          // alert('User created');
+          this.$router.push('/home'); // Cambié 'users' por '/home'
         }
       } catch (error) {
         console.error('Error creating user:', error);

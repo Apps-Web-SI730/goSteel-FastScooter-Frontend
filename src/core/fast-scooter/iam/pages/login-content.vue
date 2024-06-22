@@ -24,18 +24,19 @@ export default {
       return this.email.includes('@')
     },
     login() {
-      if (!this.checkEmail() || this.password.length < 5) {
-        alert("Verify your email ")
+      if (!this.checkEmail() || !this.password) {
+        alert("Introduct a valid email and password")
       } else {
         console.log("testeadita")
         this.loginService.getAllUsers().then((users) => {
           console.log(users.data)
           let user = users.data.find(user => user.email === this.email && user.password === this.password);
           if (user) {
-            sessionStorage.setItem('token', user.id);
+            sessionStorage.setItem('usuario', user.id);
 
+            this.$router.push('/home');
 
-            window.location.reload();
+            // window.location.reload();
           } else {
             alert("Verify your  password")
           }
@@ -43,7 +44,7 @@ export default {
       }
     },
     validateLocal() {
-      this.sessionSt=sessionStorage.getItem('token');
+      this.sessionSt=sessionStorage.getItem('usuario');
       console.log("hola",this.sessionSt)
       return this.sessionSt !== null;
 

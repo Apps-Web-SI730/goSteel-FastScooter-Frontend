@@ -20,6 +20,14 @@ export default {
       },
     };
   },
+  methods:{
+    addPaymentMethod(){
+      alert('Método de pago añadido exitosamente');
+      setTimeout(() => {
+        this.$router.push('/my-reservations');
+      }, 2000);
+    }
+  },
 
   validations(){
     return {
@@ -46,7 +54,7 @@ export default {
 <template>
   <the-header-content></the-header-content>
   <div class="container">
-    <form>
+    <form @submit.prevent="addPaymentMethod">
       <div class="row">
         <h1 class="title">{{$t('pay-method')}}</h1>
 

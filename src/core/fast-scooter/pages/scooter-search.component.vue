@@ -1,6 +1,7 @@
 <script>
 import ScootersService from "@/core/fast-scooter/services/scooters.service.js";
 import TheHeaderContent from '@/core/public/components/the-header-content.component.vue'
+import favoritesService from "@/core/fast-scooter/services/favorites.service.js";
 
 
 export default {
@@ -13,6 +14,7 @@ export default {
       layout: 'grid',
       searchTerm: '',
       filteredScooters: [],
+      buttonOutlined: true,
     }
   },
   async mounted() {
@@ -31,6 +33,12 @@ export default {
     },
     navigateToScooterDetails(scooterId) {
       this.$router.push(`/search-scooter/${scooterId}`);
+    },
+    addFavorites(favorite) {
+
+      const response = favoritesService.addFavorites(favorite);
+      this.buttonOutlined = !this.buttonOutlined;
+      console.log(favorite);
     }
   }
 }
@@ -122,7 +130,9 @@ export default {
                     <router-link :to="`/search-scooter/${item.id}`">
                       <pv-button icon="pi pi-shopping-cart" :label="$t('cta') "></pv-button>
                     </router-link>
-                    <pv-button icon="pi pi-heart" outlined></pv-button>
+<!--                    add to favorites-->
+                    <pv-button icon="pi pi-heart" @click=addFavorites(item) outlined></pv-button>
+
                   </div>
                 </div>
               </div>

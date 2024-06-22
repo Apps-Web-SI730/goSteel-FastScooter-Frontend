@@ -38,10 +38,10 @@ export default {
       try {
 
         const bookingData = {
-          userId: "1",
+          userId: sessionStorage.getItem("usuario"),
           scooterId: this.scooter.id,
           duration: 2,
-          pickZone: "Zone C",
+          pickZone: "Zone D",
           priceTotal: this.scooter.price
         }
 

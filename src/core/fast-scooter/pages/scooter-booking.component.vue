@@ -13,35 +13,36 @@ export default {
   },
   data() {
     return {
+      userId: sessionStorage.getItem("usuario"),
       reservations: [],
       scooters: {},
     };
   },
   created() {
-    if (typeof (Storage) !== 'undefined') {
-      console.log(Storage);
-      sessionStorage.setItem("usuario", "1");
-    }
+    // if (typeof (Storage) !== 'undefined') {
+    //   console.log(Storage);
+    //   sessionStorage.setItem("usuario", "1");
+    // }
 
     this.fetchBookings();
   },
-  async mounted() {
-    try {
-      const response = await ReservationsService.getAllReservations();
-      this.reservations = response.data;
-      this.$forceUpdate();
-      console.log(this.reservations);
-    } catch (error) {
-      console.log(error);
-    }
-  },
+  // async mounted() {
+  //   try {
+  //     const response = await ReservationsService.getAllReservations();
+  //     this.reservations = response.data;
+  //     this.$forceUpdate();
+  //     console.log(this.reservations);
+  //   } catch (error) {
+  //     console.log(error);
+  //   }
+  // },
   methods: {
 
 
     async fetchBookings() {
       try {
         // const response = await BookingsService.getBookingsByUser(this.userId);
-        const response = await ReservationsService.getReservationsByUser(sessionStorage.getItem("usuario"));
+        const response = await ReservationsService.getReservationsByUser(this.userId);
         this.reservations = response.data;
 
         for (const reservation of this.reservations) {
