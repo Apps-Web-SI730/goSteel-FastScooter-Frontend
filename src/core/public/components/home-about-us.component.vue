@@ -21,6 +21,7 @@ export default {
     <home-team />
     <home-get-started />
     <home-contact />
+
   </div>
 </template>
 
