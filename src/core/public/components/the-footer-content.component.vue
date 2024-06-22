@@ -8,26 +8,23 @@ export default {
   <div
     class="the-footer-content"
   >
-    <div class="logobrand">&copy; 2024 FastScooter, C.O. Go Steel</div>
+    <div class="logobrand">&copy; 2024 FastScooter, Go Steel Corp.</div>
 
     <div class="contain">
       <div class="icons">
         <div class="politica">
-          {{$t('terms-and-conditions')}}
-          <br>
-          {{$t('privacy-policy')}}
-        </div>
-        <div class="contactanos">
-          <span class="t-option">{{$t('contact-us')}}</span>
-          +51XXXXXXX
-          <br>
-          goSteel@gmail.com
+          <a href="https://www.fastscooter.com" style="color: darkgray;padding:15px;">{{$t('terms-and-conditions')}}</a>
+          <a href="https://www.fastscooter.com" style="color: darkgray;padding:15px;">{{$t('privacy-policy')}}</a>
+          <a href="https://www.fastscooter.com" style="color: darkgray;padding:15px;">{{$t('helpcenter')}}</a>
+          <a href="https://www.fastscooter.com" style="color: darkgray;padding:15px;">{{$t('download')}}</a>
+          <a href="https://www.fastscooter.com" style="color: darkgray;padding:15px;">{{$t('about')}}</a>
+          <a href="https://www.fastscooter.com" style="color: darkgray;padding:15px;">{{$t('cookies')}}</a>
         </div>
         <div class="redes">
-          <i class="icon pi pi-tiktok"></i>
-          <i class="icon pi pi-twitter"></i>
-          <i class="icon pi pi-facebook"></i>
-          <i class="icon pi pi-instagram"></i>
+          <a class="icon pi pi-tiktok" href="https://www.fastscooter.com" style="text-decoration: none;color: darkgray;padding:15px;"></a>
+          <a class="icon pi pi-twitter" href="https://www.fastscooter.com" style="text-decoration: none;color: darkgray;padding:15px;"></a>
+          <a class="icon pi pi-facebook" href="https://www.fastscooter.com" style="text-decoration: none;color: darkgray;padding:15px;"></a>
+          <a class="icon pi pi-instagram" href="https://www.fastscooter.com" style="text-decoration: none;color: darkgray;padding:15px;"></a>
         </div>
       </div>
     </div>
@@ -37,42 +34,32 @@ export default {
 
 <style scoped>
 .t-option{
-  font-size: 1rem;
-  font-weight: bold;
-}
-
-.contactanos{
-  display: flex;
-  flex-direction: column;
-  gap: 2px;
-  font-size: 0.8rem;
-  text-align: end;
+  font-size: 0.7rem;
 }
 .politica{
   display: flex;
-  flex-direction: column;
   gap: 2px;
   font-size: 0.8rem;
   text-align: end;
 }
 .redes{
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
+  display: flex;
   font-size: 0.8rem;
   text-align: end;
 }
 
 .logobrand{
-  font-size: 1rem;
+  font-size: 0.8rem;
   font-weight: bold;
   font-family: 'Nunito', sans-serif;
+  color: darkgray;
 }
 .icons{
   display: flex;
   justify-content: space-between;
   align-items: center;
   /**background-color: rgba(46,139, 87, 0.8);*/
-  color: white;
+  color: darkgray;
   font-size: 1.5rem;
   font-family: 'Nunito', sans-serif;
   bottom: 0;
@@ -82,14 +69,15 @@ export default {
 
 }
 .icon{
-  padding: 4px 4px 4px 4px;
+  padding: 0;
+  margin: 0;
 }
 
 .the-footer-content{
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 1rem 2rem;
+  padding: 0 0 0 20px;
   background-color: rgba(47, 79, 79, 0.8);
   /**background-color: rgba(46,139, 87, 0.8);*/
   color: white;
