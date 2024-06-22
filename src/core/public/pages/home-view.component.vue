@@ -132,7 +132,7 @@ h1{
     padding: 20px; /* Adjust padding as needed */
   }
   .img-back{
-    width: 100%;
+    object-fit:cover;
   }
 
   h1 {

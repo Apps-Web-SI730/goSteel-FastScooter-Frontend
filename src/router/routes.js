@@ -4,6 +4,7 @@ import UserPaymentMethodComponent from '@/core/fast-scooter/components/user-paym
 import UserProfileUpdateComponent from '@/core/fast-scooter/pages/user-profile-update.component.vue'
 import UserProfileComponent from '@/core/fast-scooter/pages/user-profile.component.vue'
 import HomeAboutUsComponent from '@/core/public/components/home-about-us.component.vue'
+import DefaultViewComponent from '@/core/public/pages/default-view.component.vue'
 
 export const routes = [
   {
@@ -11,7 +12,11 @@ export const routes = [
     name: "Home View",
     component: HomeView,
   },
-
+  {
+    path: "/",
+    name: "Default View",
+    component: DefaultViewComponent,
+  },
   {
     path: "/sign-up",
     name: "Sign Up Form",
@@ -68,11 +73,6 @@ export const routes = [
     path: "/about-us",
     name: "About Us",
     component: HomeAboutUsComponent
-  },
-  {
-
-    path: "/",
-    redirect: "/home",
   },
   {
     path: "/:pathMatch(.*)*",

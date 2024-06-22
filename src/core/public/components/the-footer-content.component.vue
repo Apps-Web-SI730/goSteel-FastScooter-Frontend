@@ -13,18 +13,18 @@ export default {
     <div class="contain">
       <div class="icons">
         <div class="politica">
-          <a href="https://www.fastscooter.com" style="color: darkgray;padding:15px;">{{$t('terms-and-conditions')}}</a>
-          <a href="https://www.fastscooter.com" style="color: darkgray;padding:15px;">{{$t('privacy-policy')}}</a>
-          <a href="https://www.fastscooter.com" style="color: darkgray;padding:15px;">{{$t('helpcenter')}}</a>
-          <a href="https://www.fastscooter.com" style="color: darkgray;padding:15px;">{{$t('download')}}</a>
-          <a href="https://www.fastscooter.com" style="color: darkgray;padding:15px;">{{$t('about')}}</a>
-          <a href="https://www.fastscooter.com" style="color: darkgray;padding:15px;">{{$t('cookies')}}</a>
+          <a href="/" style="color: darkgray;padding:15px;">{{$t('terms-and-conditions')}}</a>
+          <a href="/" style="color: darkgray;padding:15px;">{{$t('privacy-policy')}}</a>
+          <a href="/" style="color: darkgray;padding:15px;">{{$t('helpcenter')}}</a>
+          <a href="/" style="color: darkgray;padding:15px;">{{$t('download')}}</a>
+          <a href="/" style="color: darkgray;padding:15px;">{{$t('about')}}</a>
+          <a href="/" style="color: darkgray;padding:15px;">{{$t('cookies')}}</a>
         </div>
         <div class="redes">
-          <a class="icon pi pi-tiktok" href="https://www.fastscooter.com" style="text-decoration: none;color: darkgray;padding:15px;"></a>
-          <a class="icon pi pi-twitter" href="https://www.fastscooter.com" style="text-decoration: none;color: darkgray;padding:15px;"></a>
-          <a class="icon pi pi-facebook" href="https://www.fastscooter.com" style="text-decoration: none;color: darkgray;padding:15px;"></a>
-          <a class="icon pi pi-instagram" href="https://www.fastscooter.com" style="text-decoration: none;color: darkgray;padding:15px;"></a>
+          <a class="icon pi pi-tiktok" href="/" style="text-decoration: none;color: darkgray;padding:15px;"></a>
+          <a class="icon pi pi-twitter" href="/" style="text-decoration: none;color: darkgray;padding:15px;"></a>
+          <a class="icon pi pi-facebook" href="/" style="text-decoration: none;color: darkgray;padding:15px;"></a>
+          <a class="icon pi pi-instagram" href="/" style="text-decoration: none;color: darkgray;padding:15px;"></a>
         </div>
       </div>
     </div>

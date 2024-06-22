@@ -40,7 +40,7 @@ export default {
     handleLogout() {
       this.loading = true;
       setTimeout(() => {
-        this.$router.push('/login');
+        this.$router.push('/');
       }, 2000);
     },
     navigateToHome(){

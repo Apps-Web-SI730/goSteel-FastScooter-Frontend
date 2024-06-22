@@ -51,7 +51,7 @@ export default {
               <span style="font-size: 0.8rem; line-height: 0.1rem; color:dimgray;">{{$t('join-content-2')}} <a href="https://www.fastscooter.com" style="color: dimgrey;">{{$t('terms-and-conditions')}}</a> {{$t('join-content-3')}} <a href="https://www.fastscooter.com" style="color: dimgrey;">{{$t('privacy-policy')}}</a>, {{$t('join-content-4')}} <a href="https://www.fastscooter.com" style="color: dimgrey;">{{$t('cookies')}}</a>.</span>
             </p>
             <p style="font-size:0.9rem;">
-              {{$t('ready')}} <a @click="handleLogin" style="cursor: pointer;text-decoration:underline;font-size:0.9rem;color: orange;font-weight:bolder;">{{$t('login')}}</a>
+              {{$t('ready')}} <a @click="handleLogin" style="cursor: pointer;text-decoration:none;font-size:0.95rem;color: darkorange;font-weight:bolder;">{{$t('login')}}</a>
             </p>
           </div>
 

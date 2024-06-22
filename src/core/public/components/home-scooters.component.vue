@@ -5,9 +5,9 @@ export default {
 </script>
 
 <template>
-  <div class="surface-section px-4 py-8 md:px-6 lg:px-8 text-center">
+  <div class="surface-section px-4 py-8 md:px-6 lg:px-8 text-center" style="font-family: 'Nunito', sans-serif">
     <div class="mb-3 font-bold text-3xl">
-      <span class="text-900">FastScooter, </span>
+      <span class="text-900">FastScooter {{$t('member')}}, </span>
       <span class="text-orange-500">{{ $t('options-title') }}</span>
     </div>
 
@@ -18,7 +18,7 @@ export default {
             <i class="fa-solid fa-bicycle" style="color: #f97316"></i>
           </div>
         </span>
-        <div class="text-900 text-orange-500 text-xl mb-3 font-medium">{{ $t('option1') }}</div>
+        <div class="text-900 text-green-500 font-bold text-xl mb-3 font-medium">{{ $t('option1') }}</div>
         <span class="text-700 line-height-3">{{ $t('option1-content') }}</span>
       </div>
 
@@ -28,7 +28,7 @@ export default {
             <i class="fa-solid fa-person-biking-mountain" style="color: #f97316"></i>
           </div>
         </span>
-        <div class="text-900 text-orange-500 text-xl mb-3 font-medium">{{ $t('option2') }}</div>
+        <div class="text-900 text-green-500 font-bold text-xl mb-3 font-medium">{{ $t('option2') }}</div>
         <span class="text-700 line-height-3">{{ $t('option2-content') }} </span>
       </div>
 
@@ -38,7 +38,7 @@ export default {
             <i class="fa-solid fa-person-biking" style="color: #f97316"></i>
           </div>
         </span>
-        <div class="text-900 text-orange-500 text-xl mb-3 font-medium">{{ $t('option3') }}</div>
+        <div class="text-900 text-green-500 font-bold text-xl mb-3 font-medium">{{ $t('option3') }}</div>
         <span class="text-700 line-height-3">{{ $t('option3-content') }}</span>
       </div>
     </div>
