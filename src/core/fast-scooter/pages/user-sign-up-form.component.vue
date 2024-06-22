@@ -2,31 +2,54 @@
   <div class="justify-content-center flex justify-center align-items-center h-screen">
     <div class="surface-card p-4 shadow-2 border-round w-full lg:w-6">
 
-      <div class="text-center mb-5">
-        <div class="text-900 text-3xl font-medium mb-3">{{ $t('loginpage-welcome') }}</div>
-        <span class="text-600 font-medium line-height-3">{{ $t('loginpage-message2') }}</span>
-        <a class="font-medium no-underline ml-2 text-orange-500 cursor-pointer" href="/signup">{{ $t('login') }}</a>
-      </div>
+<!--      <div class="text-center mb-5">-->
+<!--        <div class="text-900 text-3xl font-medium mb-3">{{ $t('loginpage-welcome') }}</div>-->
+<!--        <span class="text-600 font-medium line-height-3">{{ $t('loginpage-message2') }}</span>-->
+<!--        <a class="font-medium no-underline ml-2 text-orange-500 cursor-pointer" href="/signup">{{ $t('login') }}</a>-->
+<!--      </div>-->
 
-      <div>
-        <label for="username" class="block text-900 font-medium mb-2">{{ $t('loginpage-name') }}</label>
-        <pv-input-text id="username" type="text" class="w-full mb-3" v-model="username" />
+            <div class="text-center mb-5">
+              <div class="text-900 text-3xl font-medium mb-3">welcome</div>
+              <span class="text-600 font-medium line-height-3">message2</span>
+              <a class="font-medium no-underline ml-2 text-orange-500 cursor-pointer" href="/signup">login</a>
+            </div>
 
-        <label for="email" class="block text-900 font-medium mb-2">{{ $t('loginpage-email') }}</label>
-        <pv-input-text id="email" type="text" class="w-full mb-3" v-model="email" />
+<!--      <div>-->
+<!--        <label for="username" class="block text-900 font-medium mb-2">{{ $t('loginpage-name') }}</label>-->
+<!--        <pv-input-text id="username" type="text" class="w-full mb-3" v-model="username" />-->
 
-        <label for="password" class="block text-900 font-medium mb-2">{{ $t('loginpage-password') }}</label>
-        <pv-input-text id="password" type="password" class="w-full mb-3" v-model="password" />
+<!--        <label for="email" class="block text-900 font-medium mb-2">{{ $t('loginpage-email') }}</label>-->
+<!--        <pv-input-text id="email" type="text" class="w-full mb-3" v-model="email" />-->
 
-        <label for="confirmPassword" class="block text-900 font-medium mb-2">{{ $t('loginpage-repeatpassword') }}</label>
-        <pv-input-text id="confirmPassword" type="password" class="w-full mb-3" v-model="confirmPassword" />
+<!--        <label for="password" class="block text-900 font-medium mb-2">{{ $t('loginpage-password') }}</label>-->
+<!--        <pv-input-text id="password" type="password" class="w-full mb-3" v-model="password" />-->
 
-        <div class="flex align-items-center justify-content-between mb-6">
-          <a class="font-medium no-underline ml-2 text-orange-500 text-right cursor-pointer">{{ $t('signup-seepassword') }}</a>
-        </div>
+<!--        <label for="confirmPassword" class="block text-900 font-medium mb-2">{{ $t('loginpage-repeatpassword') }}</label>-->
+<!--        <pv-input-text id="confirmPassword" type="password" class="w-full mb-3" v-model="confirmPassword" />-->
+
+<!--        <div class="flex align-items-center justify-content-between mb-6">-->
+<!--          <a class="font-medium no-underline ml-2 text-orange-500 text-right cursor-pointer">{{ $t('signup-seepassword') }}</a>-->
+<!--        </div>-->
+
+        <div>
+          <label for="username" class="block text-900 font-medium mb-2">name</label>
+          <pv-input-text id="username" type="text" class="w-full mb-3" v-model="username" />
+
+          <label for="email" class="block text-900 font-medium mb-2">email</label>
+          <pv-input-text id="email" type="text" class="w-full mb-3" v-model="email" />
+
+          <label for="password" class="block text-900 font-medium mb-2">password</label>
+          <pv-input-text id="password" type="password" class="w-full mb-3" v-model="password" />
+
+          <label for="confirmPassword" class="block text-900 font-medium mb-2">repeat password</label>
+          <pv-input-text id="confirmPassword" type="password" class="w-full mb-3" v-model="confirmPassword" />
+
+          <div class="flex align-items-center justify-content-between mb-6">
+            <a class="font-medium no-underline ml-2 text-orange-500 text-right cursor-pointer">signup-seepassword</a>
+          </div>
 
         <pv-button
-          :label="$t('register')"
+          label="register"
           icon="pi pi-user"
           class="w-full bg-orange-400 border-orange-200"
           @click="create()"
@@ -70,8 +93,11 @@ export default {
       try {
         const response = await this.userApiService.create(user);
         if (response.status === 201) {
-          alert('User created');
-          this.$router.push('/home-login'); // Cambié 'users' por '/home'
+          // dame el id del usuario creado en console log
+          console.log(response.data.id);
+          sessionStorage.setItem("usuario",response.data.id);
+          // alert('User created');
+          this.$router.push('/home'); // Cambié 'users' por '/home'
         }
       } catch (error) {
         console.error('Error creating user:', error);

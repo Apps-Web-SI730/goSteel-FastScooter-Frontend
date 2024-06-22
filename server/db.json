@@ -88,6 +88,24 @@
       "cellphone": "9392323",
       "date": "2024-05-10",
       "imgUrl": "https://i.imgur.com/krhyFim.png"
+    },
+    {
+      "username": "Ejemplo",
+      "email": "ejemplo@gmail.com",
+      "password": "123",
+      "cellphone": "9392323",
+      "date": "2024-05-10",
+      "imgUrl": "https://i.imgur.com/krhyFim.png",
+      "id": "2-IxuWg"
+    },
+    {
+      "username": "Ejemplo2",
+      "email": "ejemplo2@gmail.com",
+      "password": "123",
+      "cellphone": "9392323",
+      "date": "2024-05-10",
+      "imgUrl": "https://i.imgur.com/krhyFim.png",
+      "id": "Ga8MauS"
     }
   ],
   "bookings": [
@@ -98,30 +116,6 @@
       "duration": 1,
       "pickZone": "Zone B",
       "priceTotal": 250
-    },
-    {
-      "id": "2",
-      "userId": "1",
-      "scooterId": "2",
-      "duration": 2,
-      "pickZone": "Zone B",
-      "priceTotal": 250
-    },
-    {
-      "id": "3",
-      "userId": "1",
-      "scooterId": "3",
-      "duration": 2,
-      "pickZone": "Zone A",
-      "priceTotal": 300
-    },
-    {
-      "userId": 1,
-      "scooterId": "5",
-      "duration": 2,
-      "pickZone": "Zone C",
-      "priceTotal": 130,
-      "id": "LY9BkU8"
     },
     {
       "userId": "2",
@@ -145,15 +139,15 @@
       "duration": 2,
       "pickZone": "Zone C",
       "priceTotal": 120,
-      "id": "BlYWO2t"
+      "id": "jNjhiM-"
     },
     {
       "userId": "1",
-      "scooterId": "6",
+      "scooterId": "2",
       "duration": 2,
       "pickZone": "Zone C",
-      "priceTotal": 200,
-      "id": "FTbwNEF"
+      "priceTotal": 120,
+      "id": "_eTuIO8"
     },
     {
       "userId": "1",
@@ -161,7 +155,31 @@
       "duration": 2,
       "pickZone": "Zone C",
       "priceTotal": 100,
-      "id": "Cio91J3"
+      "id": "B09WVnd"
+    },
+    {
+      "userId": "1",
+      "scooterId": "3",
+      "duration": 2,
+      "pickZone": "Zone C",
+      "priceTotal": 150,
+      "id": "HPw636a"
+    },
+    {
+      "userId": "1",
+      "scooterId": "4",
+      "duration": 2,
+      "pickZone": "Zone C",
+      "priceTotal": 110,
+      "id": "OcBnYrr"
+    },
+    {
+      "userId": "2-IxuWg",
+      "scooterId": "3",
+      "duration": 2,
+      "pickZone": "Zone D",
+      "priceTotal": 150,
+      "id": "2POgeCG"
     }
   ],
   "scooters": [
@@ -266,6 +284,142 @@
       "pickZone": "Zone C",
       "priceTotal": 200,
       "id": 6
+    },
+    {
+      "userId": 1,
+      "scooterId": "2",
+      "duration": 2,
+      "pickZone": "Zone B",
+      "priceTotal": 250,
+      "id": 7
+    },
+    {
+      "userId": 1,
+      "scooterId": "6",
+      "duration": 2,
+      "pickZone": "Zone C",
+      "priceTotal": 200,
+      "id": 8
+    },
+    {
+      "userId": 1,
+      "scooterId": "2",
+      "duration": 2,
+      "pickZone": "Zone C",
+      "priceTotal": 120,
+      "id": 9
+    },
+    {
+      "userId": 1,
+      "scooterId": "2",
+      "duration": 2,
+      "pickZone": "Zone C",
+      "priceTotal": 120,
+      "id": 10
+    },
+    {
+      "userId": "Ga8MauS",
+      "scooterId": "2",
+      "duration": 2,
+      "pickZone": "Zone D",
+      "priceTotal": 120,
+      "id": 11
+    },
+    {
+      "userId": "Ga8MauS",
+      "scooterId": "6",
+      "duration": 2,
+      "pickZone": "Zone D",
+      "priceTotal": 200,
+      "id": 12
+    },
+    {
+      "userId": "5d4d",
+      "scooterId": "3",
+      "duration": 2,
+      "pickZone": "Zone D",
+      "priceTotal": 150,
+      "id": 13
+    },
+    {
+      "userId": "5d4d",
+      "scooterId": "3",
+      "duration": 2,
+      "pickZone": "Zone D",
+      "priceTotal": 150,
+      "id": 14
+    },
+    {
+      "userId": "5d4d",
+      "scooterId": "3",
+      "duration": 2,
+      "pickZone": "Zone D",
+      "priceTotal": 150,
+      "id": 15
+    },
+    {
+      "userId": "5d4d",
+      "scooterId": "3",
+      "duration": 2,
+      "pickZone": "Zone D",
+      "priceTotal": 150,
+      "id": 16
+    },
+    {
+      "userId": "5d4d",
+      "scooterId": "3",
+      "duration": 2,
+      "pickZone": "Zone D",
+      "priceTotal": 150,
+      "id": 17
+    },
+    {
+      "userId": "5d4d",
+      "scooterId": "3",
+      "duration": 2,
+      "pickZone": "Zone D",
+      "priceTotal": 150,
+      "id": 18
+    },
+    {
+      "userId": "5d4d",
+      "scooterId": "3",
+      "duration": 2,
+      "pickZone": "Zone D",
+      "priceTotal": 150,
+      "id": 19
+    },
+    {
+      "userId": "5d4d",
+      "scooterId": "3",
+      "duration": 2,
+      "pickZone": "Zone D",
+      "priceTotal": 150,
+      "id": 20
+    },
+    {
+      "userId": "5d4d",
+      "scooterId": "2",
+      "duration": 2,
+      "pickZone": "Zone D",
+      "priceTotal": 120,
+      "id": 21
+    },
+    {
+      "userId": "Ga8MauS",
+      "scooterId": "3",
+      "duration": 2,
+      "pickZone": "Zone D",
+      "priceTotal": 150,
+      "id": 22
+    },
+    {
+      "userId": "5d4d",
+      "scooterId": "1",
+      "duration": 2,
+      "pickZone": "Zone D",
+      "priceTotal": 100,
+      "id": 23
     }
   ],
   "paymentData": [
