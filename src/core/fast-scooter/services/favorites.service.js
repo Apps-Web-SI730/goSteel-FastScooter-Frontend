@@ -10,6 +10,11 @@ class FavoritesApiService {
         return http.get(`/favorites/${favoritesId}`)
     }
 
+    getFavoritesByUser(userId){
+        return http.get(`/users/${userId}/favorites`)
+    }
+
+
     addFavorites(favorite) {
         return http.post("/favorites", favorite)
     }

@@ -29,7 +29,6 @@ export default {
       } else {
         console.log("testeadita")
         this.loginService.getAllUsers().then((users) => {
-          console.log(users.data)
           let user = users.data.find(user => user.email === this.email && user.password === this.password);
           if (user) {
             sessionStorage.setItem('usuario', user.id);

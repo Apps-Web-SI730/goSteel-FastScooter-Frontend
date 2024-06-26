@@ -10,6 +10,7 @@ export default {
 
   data() {
     return {
+      userId: sessionStorage.getItem("usuario"),
       scooters: null,
       layout: 'grid',
       searchTerm: '',
@@ -36,7 +37,17 @@ export default {
     },
     addFavorites(favorite) {
 
-      const response = favoritesService.addFavorites(favorite);
+      //add this.userId to favorite object
+      const favoriteWithUserId = {
+        userId: this.userId,
+        scooterId: favorite.id,
+        brand: favorite.brand,
+        description: favorite.description,
+        price: favorite.price,
+        image: favorite.image
+      }
+
+      const response = favoritesService.addFavorites(favoriteWithUserId);
       this.buttonOutlined = !this.buttonOutlined;
       console.log(favorite);
     }

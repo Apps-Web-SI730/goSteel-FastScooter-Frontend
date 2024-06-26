@@ -3,7 +3,7 @@
     {
       "id": "1",
       "username": "User",
-      "email": "email@email.com",
+      "email": "23@email.com",
       "password": "password123",
       "cart": [
         "1",
@@ -22,7 +22,10 @@
           "pickupZone": "Zone B",
           "priceTotal": 120
         }
-      ]
+      ],
+      "firstName": "user",
+      "lastName": "23",
+      "phone": "232323232"
     },
     {
       "id": "2",
@@ -106,6 +109,42 @@
       "date": "2024-05-10",
       "imgUrl": "https://i.imgur.com/krhyFim.png",
       "id": "Ga8MauS"
+    },
+    {
+      "username": "User21",
+      "email": "user21@gmail.com",
+      "password": "12345",
+      "cellphone": "9392323",
+      "date": "2024-05-10",
+      "imgUrl": "https://i.imgur.com/krhyFim.png",
+      "id": "F8ZGSqz"
+    },
+    {
+      "username": "user22",
+      "email": "user22@gmail.com",
+      "password": "12345",
+      "cellphone": "9392323",
+      "date": "2024-05-10",
+      "imgUrl": "https://i.imgur.com/krhyFim.png",
+      "id": "6qHjlXV"
+    },
+    {
+      "username": "user2333",
+      "email": "user2333@gmail.com",
+      "password": "12345",
+      "cellphone": "9392323",
+      "date": "2024-05-10",
+      "imgUrl": "https://i.imgur.com/krhyFim.png",
+      "id": "gWqYJ6l"
+    },
+    {
+      "username": "user24",
+      "email": "user24@gmail.com",
+      "password": "12345",
+      "cellphone": "9392323",
+      "date": "2024-05-10",
+      "imgUrl": "https://i.imgur.com/krhyFim.png",
+      "id": "5rAsgz9"
     }
   ],
   "bookings": [
@@ -180,6 +219,14 @@
       "pickZone": "Zone D",
       "priceTotal": 150,
       "id": "2POgeCG"
+    },
+    {
+      "userId": "6qHjlXV",
+      "scooterId": "6",
+      "duration": 2,
+      "pickZone": "Zone D",
+      "priceTotal": 200,
+      "id": "vKZtrRw"
     }
   ],
   "scooters": [
@@ -235,7 +282,35 @@
       "image": "https://placehold.co/400"
     }
   ],
-  "favorites": [],
+  "favorites": [
+    {
+      "userId": "gWqYJ6l",
+      "scooterId": "3",
+      "brand": "Yet Another Brand",
+      "description": "Lorem Ipsum consectetur adipiscing elit",
+      "price": 150,
+      "image": "https://coolboxpe.vtexassets.com/arquivos/ids/333953/HN-FS031_1.jpg?v=638382761849830000",
+      "id": 3
+    },
+    {
+      "userId": "gWqYJ6l",
+      "scooterId": "4",
+      "brand": "New Brand",
+      "description": "Lorem Ipsum dolor sit amet",
+      "price": 110,
+      "image": "https://www.alphaproscooters.com/cdn/shop/products/root-industries-type-r-pro-scooter-rocket-fuel-completes-root-industries-845351.jpg?v=1613577247",
+      "id": 4
+    },
+    {
+      "userId": "5rAsgz9",
+      "scooterId": "1",
+      "brand": "Brand Name",
+      "description": "Lorem Ipsum etvc",
+      "price": 100,
+      "image": "https://falabella.scene7.com/is/image/FalabellaPE/881662378_1?wid=800&hei=800&qlt=70",
+      "id": 5
+    }
+  ],
   "reservations": [
     {
       "userId": 1,
@@ -420,6 +495,22 @@
       "pickZone": "Zone D",
       "priceTotal": 100,
       "id": 23
+    },
+    {
+      "userId": "F8ZGSqz",
+      "scooterId": "1",
+      "duration": 2,
+      "pickZone": "Zone D",
+      "priceTotal": 100,
+      "id": 24
+    },
+    {
+      "userId": "F8ZGSqz",
+      "scooterId": "2",
+      "duration": 2,
+      "pickZone": "Zone D",
+      "priceTotal": 120,
+      "id": 25
     }
   ],
   "paymentData": [

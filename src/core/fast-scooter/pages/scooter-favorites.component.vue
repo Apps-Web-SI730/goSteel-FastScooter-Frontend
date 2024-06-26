@@ -8,6 +8,7 @@ export default {
 
   data() {
     return {
+      userId: sessionStorage.getItem("usuario"),
       favorites: null,
       layout: 'grid'
     }
@@ -18,7 +19,7 @@ export default {
   methods:{
     async fetchFavorites() {
       try {
-        const res = await FavoritesService.getAllFavorites();
+        const res = await FavoritesService.getFavoritesByUser(this.userId);
         this.favorites = res.data;
       } catch (error) {
         console.error(error);
