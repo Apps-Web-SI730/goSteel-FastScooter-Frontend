@@ -37,6 +37,25 @@ export default {
   //   }
   // },
   methods: {
+    async deleteReservation(bookingId) {
+      const confirmed = await this.showConfirmDialog();
+      if (confirmed) {
+        try {
+          console.log(bookingId)
+          await ReservationsService.deleteReservation(bookingId);
+          this.reservations = this.reservations.filter((booking) => booking.id !== bookingId);
+          console.log("Booking deleted successfully:", bookingId);
+        } catch (error) {
+          console.error("Error deleting booking:", bookingId, error);
+        }
+      }
+    },
+    showConfirmDialog() {
+      return new Promise((resolve) => {
+        const confirmation = confirm("¿Estás seguro de que quieres eliminar esta reserva? Esta acción no se puede deshacer.");
+        resolve(confirmation);
+      });
+    },
 
 
     async fetchBookings() {
@@ -58,6 +77,7 @@ export default {
     }
   }
   // Add your methods here
+
 }
 
 </script>
@@ -81,6 +101,7 @@ export default {
                                 <strong>Pickup Zone:</strong> {{ reservation.pickZone }}<br>
                                 <strong>Price Total:</strong> {{ reservation.priceTotal }}
               </p>
+              <pv-button @click="deleteReservation(reservation.id)" icon="pi pi-trash" outlined/>
             </div>
           </div>
 
