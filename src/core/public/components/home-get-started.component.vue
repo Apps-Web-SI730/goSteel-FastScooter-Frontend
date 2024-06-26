@@ -17,7 +17,7 @@ export default {
           <p class="text-900 text-xl">
             {{ $t('get-started-content') }}
           </p>
-          <div class="text-orange-500 font-bold mb-3">Powered by Discord</div>
+          <div class="text-orange-500 font-bold">Powered by Discord</div>
         </div>
       </div>
       <div class="testimonialimg">
@@ -28,11 +28,11 @@ export default {
       </div>
     </div>
 
-    <a id="signup_button" href="/signup">
+    <a id="signup_button" href="/">
       <pv-button
         label="Join Now"
         icon="pi pi-external-link"
-        class="font-bold px-5 py-3 p-button-raised bg-orange-400 border-orange-500 p-button-rounded white-space-nowrap"
+        class="font-bold py-3 p-button-raised bg-orange-400 border-orange-500 p-button-rounded white-space-nowrap"
       />
     </a>
   </div>

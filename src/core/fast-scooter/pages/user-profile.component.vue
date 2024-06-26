@@ -3,18 +3,16 @@
   <div class="user-profile-container">
     <div class="profile-info-container">
       <div class="profile-info">
-        <p><strong>Nombres:</strong> {{ user.firstName }}</p>
-        <p><strong>Apellidos:</strong> {{ user.lastName }}</p>
-        <p><strong>Celular:</strong> {{ user.phone }}</p>
-        <p><strong>Correo:</strong> {{ user.email }}</p>
+        <p><strong>{{ $t('name') }}</strong> {{ user.username }}</p>
+        <p><strong>{{ $t('email') }}</strong> {{ user.email }}</p>
         <div class="button-group">
-          <UserProfileButton label="Actualizar Datos" class="p-button-outlined update-button" @click="updateProfile" />
-          <UserProfileButton label="Cerrar Sesión" class="p-button-danger  logout-button" @click="logout" />
+          <UserProfileButton :label="$t('update')" class="p-button-outlined update-button" @click="updateProfile" />
+          <UserProfileButton :label="$t('logout')" class="p-button-danger  logout-button" @click="logout" />
         </div>
       </div>
     </div>
     <div class="profile-picture">
-      <img :src="user.profilePicture" alt="Foto de perfil" />
+<!--      <img :src="user.profilePicture" alt="Photo profile" />-->
     </div>
   </div>
 </template>
@@ -23,6 +21,7 @@
 import axios from 'axios'
 import UserProfileButton from "@/core/fast-scooter/components/user-profile-button.component.vue";
 import TheHeaderContent from '@/core/public/components/the-header-content.component.vue'
+import UsersService from "@/core/fast-scooter/services/users.service.js";
 export default {
 name: 'UserProfile',
   components: {
@@ -31,26 +30,29 @@ name: 'UserProfile',
 },
 data() {
   return {
+    userId: sessionStorage.getItem("usuario"),
     user: {}
   }
 },
-  mounted() {
-    // Fetch los datos del usuario
-    axios.get('http://localhost:3000/users/1')
-      .then(response => {
-        this.user = response.data
-      })
-      .catch(error => {
-        console.error('Error al obtener datos del usuario:', error)
-      })
-},
+  created() {
+    this.getUser();
+  },
 methods: {
+  async getUser() {
+    try {
+      const response = await UsersService.getUserById(this.userId);
+      this.user = response.data;
+      console.log(this.user)
+    }catch (error){
+      console.log(error);
+    }
+  },
   updateProfile() {
     this.$router.push('/user-update');
   },
   logout() {
     // Lógica para cerrar sesión
-    this.$router.push('/home');
+    this.$router.push('/');
   },
   changePhoto() {
     // Lógica para cambiar la foto del perfil
@@ -69,7 +71,8 @@ methods: {
   align-items: center;
   justify-content: center;
   height: 100vh;
-  padding: 20px;
+  padding: 10px;
+  background-color: lightgray;
 }
 
 .profile-info-container {
@@ -87,7 +90,7 @@ methods: {
   margin-bottom: 20px;
 }
 .update-button {
-  background-color: #28a745;
+  background-color: mediumseagreen;
   color: white;
 }
 .button-group {
@@ -98,7 +101,7 @@ methods: {
 }
 
 .profile-info p {
-  margin: 5px 0;
+  margin: 1px 10px;
   font-size: 1.2em;
 }
 
@@ -113,7 +116,7 @@ methods: {
 }
 
 .logout-button {
-  background-color: #f44336;
+  background-color: orangered;
   color: white;
 }
 .profile-picture {

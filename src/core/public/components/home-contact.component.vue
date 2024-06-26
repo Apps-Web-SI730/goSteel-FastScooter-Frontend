@@ -54,13 +54,13 @@ export default {
       <p>{{ $t('contact-us-sub-title') }}</p>
 
       <form class="m-3 flex-row" v-on:submit.prevent="submitForm" :class="{ 'form-complete': !formIncomplete }">
-        <pv-input-text v-model="name" placeholder="Name" class="w-full" :class="formIncomplete ?'f-incomplete' : 'f-complete'" />
+        <pv-input-text v-model="name" :placeholder="$t('name')" class="w-full" :class="formIncomplete ?'f-incomplete' : 'f-complete'" />
 
-        <pv-input-text v-model="email" placeholder="Email" class="my-3 w-full" :class="formIncomplete ?'f-incomplete' : 'f-complete'" />
+        <pv-input-text v-model="email" :placeholder="$t('email')" class="my-3 w-full" :class="formIncomplete ?'f-incomplete' : 'f-complete'" />
 
-        <pv-textarea v-model="message" placeholder="Message" rows="5" class="mb-3 w-full" :class="formIncomplete ?'f-incomplete' : 'f-complete'" />
+        <pv-textarea v-model="message" :placeholder="$t('message')" rows="5" class="mb-3 w-full" :class="formIncomplete ?'f-incomplete' : 'f-complete'" />
 
-        <pv-button label="Send" type="submit" :class="formIncomplete ? 'bg-gradient-to-r from-red-500 to-red-700': 'bg-gradient-to-r from-green-500 to-blue-500 transition duration-500'" class="w-full"/>
+        <pv-button :label="$t('send')" type="submit" :class="formIncomplete ? 'bg-gradient-to-r from-red-500 to-red-700': 'bg-gradient-to-r from-green-500 to-blue-500 transition duration-500'" class="w-full"/>
       </form>
     </div>
   </div>
@@ -83,30 +83,6 @@ pv-button:focus {
 .form-complete .f-complete {
   color: #E16F58;
 }
-
-/*
-.bg-gradient-to-r.from-red-500.to-red-700 {
-  background: linear-gradient(to right, #817E9F, #808080);
-  border: none;
-  color: #FFF;
-}
-
-.bg-gradient-to-r.from-green-500.to-blue-500 {
-  background: linear-gradient(to right, #f97316, #E16F58);
-  border: none;
-  color: #FFF;
-}
-
-.f-incomplete:hover,.f-incomplete:focus {
-  border-color: #817E9F !important;
-  box-shadow: 0 0 5px #817E9F !important;
-}
-
-.f-complete:hover,.f-complete:focus {
-  border-color: #E16F58 !important;
-  box-shadow: 0 0 5px #E16F58 !important;
-}
-*/
 
 .container-form{
   display: flex;

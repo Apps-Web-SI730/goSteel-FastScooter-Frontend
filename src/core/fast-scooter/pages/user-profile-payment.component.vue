@@ -72,7 +72,7 @@ export default {
   <div class="container">
     <form @submit.prevent="create">
       <div class="row">
-        <h1 class="title">Métodos de pago</h1>
+        <h1 class="title">{{$t('pay-method')}}</h1>
 
         <div class="col">
           <div class="inputBox">

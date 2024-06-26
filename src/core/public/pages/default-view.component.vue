@@ -1,31 +1,35 @@
 <script>
-import TheHeaderContent from '@/core/public/components/the-header-content.component.vue'
-import TheFooterContent from '@/core/public/components/the-footer-content.component.vue'
+import TheToolbarDefault from '@/core/public/components/the-toolbar-default.component.vue'
 import TheBackground from '@/assets/images/body/background-1.jpg'
+import TheFooterContent from '@/core/public/components/the-footer-content.component.vue'
 
 export default {
-  name: 'home-view.component',
-  components: {
-    TheFooterContent,
-    TheHeaderContent,
-  },
+  name: 'default-view',
+  components: { TheFooterContent, TheToolbarDefault },
   data() {
     return {
       imgSrc: TheBackground,
     };
   },
   methods:{
-    navigateToScooters(){
-      this.$router.push('/search-scooter');
-
+    handleLogin() {
+      this.loading = true;
+      setTimeout(() => {
+        this.$router.push('/login');
+      }, 500);
+    },
+    handleSingup() {
+      this.loading = true;
+      setTimeout(() => {
+        this.$router.push('/sign-up');
+      }, 500);
+    },
   }
 }
-};
 </script>
 
 <template>
-  <the-header-content/>
-
+  <the-toolbar-default/>
   <div class="container" >
     <div class="row">
       <div class="col-md-12" :style="{ backgroundImage: `url(${imgSrc})` }">
@@ -37,16 +41,28 @@ export default {
               <span style=" color: indianred">{{$t('cta-7')}}</span> {{$t('cta-8')}}.
               <br><h3>{{$t('cta-9')}} <span class="text-yellow">{{$t('cta-10')}}</span> {{$t('cta-11')}} <span class="text-pink">glamour</span> {{$t('cta-13')}}</h3></div>
           </div>
-        <pv-button class="button-cta" @click="navigateToScooters()">{{$t('cta')}}</pv-button>
+          <div class="form-default">
+            <h2 class="h1-form">{{$t('join')}}</h2>
+            <p>
+              {{$t('join-content')}}
+              <br><br>
+              <pv-button class="button-sign" @click="handleSingup" style="font-family: 'Nunito', sans-serif; font-weight: bold;">{{$t('signup')}}</pv-button>
+              <br>
+              <span style="font-size: 0.8rem; line-height: 0.1rem; color:dimgray;">{{$t('join-content-2')}} <a href="https://www.fastscooter.com" style="color: dimgrey;">{{$t('terms-and-conditions')}}</a> {{$t('join-content-3')}} <a href="https://www.fastscooter.com" style="color: dimgrey;">{{$t('privacy-policy')}}</a>, {{$t('join-content-4')}} <a href="https://www.fastscooter.com" style="color: dimgrey;">{{$t('cookies')}}</a>.</span>
+            </p>
+            <p style="font-size:0.9rem;">
+              {{$t('ready')}} <a @click="handleLogin" style="cursor: pointer;text-decoration:none;font-size:0.95rem;color: darkorange;font-weight:bolder;">{{$t('login')}}</a>
+            </p>
+          </div>
+
+        </div>
       </div>
     </div>
-  </div>
   </div>
   <the-footer-content></the-footer-content>
 </template>
 
 <style scoped>
-
 .text-yellow{
   color: greenyellow;
   text-shadow: greenyellow 2px 2px 10px;
@@ -60,22 +76,23 @@ export default {
   font-family: 'Nunito', sans-serif;
   border: none;
 }
- .img-back {
-   background-image: url('@/assets/images/body/background-1.jpg');
-   background-size: cover;
-   background-repeat: no-repeat;
-   width:100%;
-   z-index: 1;
-   position: absolute;
-   border: none;
- }
+.img-back {
+  background-image: url('@/assets/images/body/background-1.jpg');
+  background-size: cover;
+  background-repeat: no-repeat;
+  width:100%;
+  z-index: 1;
+  position: absolute;
+  border: none;
+}
 
 h1{
   line-height: 50px;
   z-index: 3;
   position: absolute;
-  top: 26%;
-  left: 72.4%;
+  top: 30%;
+  left: 35%;
+  right: 40%;
   transform: translate(-50%, -50%);
   font-size: 3.5rem;
   font-weight: bolder;
@@ -85,40 +102,60 @@ h1{
 .p-text{
   z-index: 2;
   position: absolute;
-  top: 43%;
-  left: 50%;
+  top: 45.5%;
+  left: 17%;
+  right: 43.5%;
   transform: translate(-6%, -40%);
   font-size: 1.5rem;
   font-weight: bold;
   text-shadow: 2px 2px 10px rgba(0,0,0,1);
   color: white;
   background-color: rgba(0,0,0,0.5);
-  padding:90px 40px 40px 40px;
+  padding:130px 40px 1px 40px;
   border-radius: 30px;
   margin: 10px 80px 10px 80px;
   text-align:center;
 }
 
-.button-cta{
-  z-index: 3;
+.form-default{
+  background-color: white;
+  z-index: 4;
   position: absolute;
-  top: 67%;
-  left: 67%;
-  transform: translate(-50%, -50%);
-  font-size: 1.5rem;
-  font-weight: bold;
-  color: white;
-  background-color: rgba(50, 194, 70, 0.5);
-  padding: 10px 20px 10px 20px;
+  top: 26%;
+  left: 53%;
+  right: 18%;
   border-radius: 30px;
-  margin: 10px 80px 10px 80px;
+  margin:0 20px 0 20px;
+  padding:0 40px 40px 40px;
+  font-size: 1.2rem;
+  align-items: center;
+  justify-content: center;
+  justify-items: center;
   text-align:center;
-  cursor: pointer;
-  transition: 0.5s;
-  font-family: 'Nunito', sans-serif;
+  border-color: dimgray;
+  border-style: dashed;
 }
 
-.button-cta:hover{
+.form-default span{
+  line-height:1px;
+}
+
+.h1-form{
+  font-size: 3rem;
+  font-weight: bolder;
+  margin:35px 20px 20px 20px;
+  color: orange;
+  text-shadow: 2px 2px 10px rgba(255,165,0,1);
+  text-align: center;
+}
+
+.button-sign{
+  padding: 10px 50px 10px 50px;
+  border-radius: 30px;
+
+}
+
+.button-sign:hover{
   background-color: rgba(255, 135, 5, 0.8);
   color: white;
   border-color: rgba(255, 135, 5, 0.8);
@@ -132,7 +169,7 @@ h1{
     padding: 20px; /* Adjust padding as needed */
   }
   .img-back{
-    object-fit:cover;
+    width: 100%;
   }
 
   h1 {

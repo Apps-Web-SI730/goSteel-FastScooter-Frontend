@@ -10,25 +10,21 @@ export default {
   components: { TheHeaderContent },
   data(){
     return{
-      userId: 1,
+      userId: sessionStorage.getItem("usuario"),
       bookings: [],
       scooters: {},
     };
   },
   created() {
-    if(typeof (Storage) !== 'undefined'){
-      console.log(Storage);
-      sessionStorage.setItem("usuario","1");
-    }
-
     this.fetchBookings();
   },
   methods: {
     async fetchBookings() {
       try {
-        // const response = await BookingsService.getBookingsByUser(this.userId);
-        const response = await BookingsService.getBookingsByUser(sessionStorage.getItem("usuario"));
+        const response = await BookingsService.getBookingsByUser(this.userId);
+        // const response = await BookingsService.getBookingsByUser(sessionStorage.getItem("usuario"));
         this.bookings = response.data;
+        console.log(response.data);
 
         for (const booking of this.bookings) {
           const scooterId = booking.scooterId;
@@ -52,7 +48,6 @@ export default {
     },
     async payForRentals() {
       try {
-        // Add logic to create reservations for each rented scooter
         for (const booking of this.bookings) {
           const reservationData = {
             userId: this.userId,
@@ -61,17 +56,25 @@ export default {
             pickZone: booking.pickZone,
             priceTotal: booking.priceTotal,
           };
-          await ReservationsService.addReservation(reservationData); // Call BookingsService to create reservation
+          await ReservationsService.addReservation(reservationData);
+
+          await BookingsService.deleteBooking(booking.id);
+
         }
 
-        // Clear bookings and scooter data after successful payment
         this.bookings = [];
         this.scooters = {};
-        console.log("Payment successful! Reservations created.");
+
+        this.$router.push('/payment-method/:id');
+
+
 
       } catch (error) {
         console.error("Error creating reservations:", error);
       }
+    },
+    redirectToSearch(){
+      this.$router.push('/search-scooter');
     }
   },
   computed:{
@@ -118,11 +121,9 @@ export default {
       <p>Total: ${{ totalPrice }}</p>
 
       <pv-button :label="$t('payment-now')" @click="payForRentals()"></pv-button>
-      <pv-button :label="$t('payment-cancel')" outlined></pv-button>
-      
-      <!--      <router-link to="/scooter-search">-->
-<!--        <pv-button label="Continue renting" outlined></pv-button>-->
-<!--      </router-link>-->
+      <pv-button :label="$t('payment-cancel')"@click="redirectToSearch()" outlined ></pv-button>
+
+
 
     </div>
   </div>

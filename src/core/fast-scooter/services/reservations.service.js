@@ -23,7 +23,7 @@ class ReservationsApiService {
     }
 
     deleteReservation(reservationId) {
-        return http.delete(`/bookings/${reservationId}`) // typo fixed here
+        return http.delete(`/reservations/${reservationId}`) // typo fixed here
     }
 
 }

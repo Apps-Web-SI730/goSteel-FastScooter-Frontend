@@ -3,32 +3,23 @@
   <div class="user-profile-update-container">
     <div class="center-content">
       <div class="profile-picture">
-        <img :src="user.profilePicture" alt="Foto de perfil" />
-        <a href="#" class="change-photo-link" @click="openFileInput">Cambiar foto</a>
+<!--        <img :src="user.profilePicture" alt="Foto de perfil" />-->
+        <a href="#" class="change-photo-link" @click="openFileInput">{{$t('change-photo')}}</a>
         <input type="file" ref="fileInput" @change="handleFileSelect" style="display: none;" accept="image/*">
       </div>
       <form @submit.prevent="saveProfile" class="user-form">
         <div class="form-group">
-          <label for="firstName">Nombres:</label>
-          <input type="text" id="firstName" v-model="user.firstName" />
+          <label for="firstName">{{$t('username')}}</label>
+          <input type="text" id="firstName" v-model="user.username" />
         </div>
         <div class="form-group">
-          <label for="lastName">Apellidos:</label>
-          <input type="text" id="lastName" v-model="user.lastName" />
-        </div>
-        <div class="form-group">
-          <label for="phone">Celular:</label>
-          <input type="text" id="phone" v-model="user.phone" pattern="[0-9]{9}" maxlength="9" title="El número de teléfono debe tener 9 dígitos" />
-          <small class="error" v-if="phoneError">El número de telefono debe tener 9 digitos.</small>
-        </div>
-        <div class="form-group">
-          <label for="email">Correo:</label>
+          <label for="email">{{$t('email')}}</label>
           <input type="email" id="email" v-model="user.email" />
         </div>
         <div class="button-group">
-          <UserProfileButton label="Guardar Cambios" class="p-button-outlined save-button" type="submit" />
-          <UserProfileButton label="Cancelar" class="p-button-outlined cancel-button" @click="cancelUpdate" />
-        </div>
+          <pv-button :label="$t('save')" class="save-button" type="submit" />
+          <pv-button :label="$t('cancel')" class="save-button" type="submit" @click=" cancelUpdate"/>
+          </div>
       </form>
     </div>
   </div>
@@ -38,46 +29,40 @@
 import UserProfileButton from "@/core/fast-scooter/components/user-profile-button.component.vue";
 import axios from 'axios'
 import TheHeaderContent from '@/core/public/components/the-header-content.component.vue'
+import UsersService from "@/core/fast-scooter/services/users.service.js";
 export default {
 name: 'UserProfileUpdate',
   components: {
     TheHeaderContent,
-  UserProfileButton
 },
 data() {
   return {
-    user: {
-      firstName: '',
-      lastName: '',
-      phone: '',
-      email: '',
-      profilePicture: ''
-    },
+    userId: sessionStorage.getItem("usuario"),
+    user: null,
     phoneError: false
   };
 },
-  mounted() {
-    axios.get('http://localhost:3000/users/1')
-      .then(response => {
-        this.user = response.data;
-      })
-      .catch(error => {
-        console.error('Error al obtener datos del usuario:', error);
-      });
+  created() {
+    this.getUser();
   },
 methods: {
-  saveProfile() {
-    if (this.user.phone.length === 9) {
-      axios.put('http://localhost:3000/users/1', this.user)
-        .then(() => {
-          alert('Perfil actualizado correctamente');
-          this.$router.push('/user-profile');
-        })
-        .catch(error => {
-          console.error('Error al guardar los cambios del perfil:', error);
-        });
-    } else {
-      this.phoneError = true;
+  async getUser() {
+    try {
+      const response = await UsersService.getUserById(this.userId);
+      this.user = response.data;
+      console.log(this.user)
+    }catch (error){
+      console.log(error);
+    }
+  },
+
+  async saveProfile() {
+    try {
+      const response = await UsersService.updateUser(this.user);
+      console.log('User updated:', response.data);
+      this.$router.push('/user-profile');
+    } catch (error) {
+      console.error('Error updating user:', error);
     }
   },
   cancelUpdate() {
@@ -106,7 +91,7 @@ methods: {
       justify-content: center;
       align-items: center;
       height: 100vh;
-      background-color: #f9f9f9;
+      background-color: lightgray;
       padding: 20px;
     }
 
@@ -161,13 +146,13 @@ methods: {
   .save-button {
     flex: 1;
     margin-right: 5px;
-    background-color: #28a745;
+    background-color: mediumseagreen;
     color: white;
   }
   .cancel-button {
     flex: 1;
     margin-left: 5px;
-  background-color: #f44336;
+  background-color: orangered;
   color: white;
   }
 
