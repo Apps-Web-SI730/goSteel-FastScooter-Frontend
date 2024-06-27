@@ -21,7 +21,7 @@ export default {
   methods: {
     async fetchBookings() {
       try {
-        const response = await BookingsService.getBookingsByUser(this.userId);
+        const response = await BookingsService.getAllBookings();
         // const response = await BookingsService.getBookingsByUser(sessionStorage.getItem("usuario"));
         this.bookings = response.data;
         console.log(response.data);

@@ -38,11 +38,11 @@ export default {
       try {
 
         const bookingData = {
-          userId: sessionStorage.getItem("usuario"),
+          startDate: "2024-06-27",
+          endDate: "2024-06-29",
+          price: 20,
           scooterId: this.scooter.id,
-          duration: 2,
-          pickZone: "Zone D",
-          priceTotal: this.scooter.price
+          userId: sessionStorage.getItem("usuario")
         }
 
         const response = await BookingsService.addBooking(bookingData);
@@ -72,7 +72,7 @@ export default {
   <div class="container-details">
     <div class="container-scooters-details">
       <div class="images-scooters">
-        <img class="image-scooter" :src="scooter.image" alt="scooter">
+        <img class="image-scooter" :src="scooter.imageUrl" alt="scooter">
 
       </div>
       <div class="text-scooter-details">

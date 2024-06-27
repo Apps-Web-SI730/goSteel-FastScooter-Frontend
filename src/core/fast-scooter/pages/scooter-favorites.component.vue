@@ -1,6 +1,7 @@
 <script>
 import FavoritesService from "@/core/fast-scooter/services/favorites.service.js";
 import TheHeaderContent from '@/core/public/components/the-header-content.component.vue'
+import ScootersService from "@/core/fast-scooter/services/scooters.service.js";
 
 export default {
   name: 'scooter-favorites.component',
@@ -10,6 +11,7 @@ export default {
     return {
       userId: sessionStorage.getItem("usuario"),
       favorites: null,
+      scooter: null,
       layout: 'grid'
     }
   },
@@ -22,6 +24,16 @@ export default {
         const res = await FavoritesService.getFavoritesByUser(this.userId);
         console.log(res.data);
         this.favorites = res.data;
+
+      } catch (error) {
+        console.error(error);
+      }
+    },
+    //get scooter by Id
+    async scooterById(scooterId) {
+      try {
+        const res = await ScootersService.getScooterById(scooterId);
+        return res.data;
       } catch (error) {
         console.error(error);
       }
@@ -58,7 +70,7 @@ export default {
               <div class="flex flex-column md:flex-row justify-content-between md:align-items-center flex-1 gap-4">
                 <div class="flex flex-row md:flex-column justify-content-between align-items-start gap-2">
                   <div>
-                    <span class="font-medium text-secondary text-sm">{{ item.brand }}</span>
+                    <span class="font-medium text-secondary text-sm">{{ item.id }}</span>
                     <div class="text-lg font-medium text-900 mt-2">{{ item.description }}</div>
                   </div>
                   <div class="surface-100 p-1" style="border-radius: 30px">

@@ -39,16 +39,23 @@ export default {
     addFavorites(favorite) {
 
       //add this.userId to favorite object
+      // const favoriteWithUserId = {
+      //   userId: this.userId,
+      //   scooterId: favorite.id,
+      //   brand: favorite.brand,
+      //   description: favorite.description,
+      //   price: favorite.price,
+      //   image: favorite.image
+      // }
       const favoriteWithUserId = {
         userId: this.userId,
-        scooterId: favorite.id,
-        brand: favorite.brand,
-        description: favorite.description,
-        price: favorite.price,
-        image: favorite.image
+        scooterId: favorite,
       }
-
+      console.log(this.userId);
+      console.log(favorite);
       const response = favoritesService.addFavorites(favoriteWithUserId);
+      // const response = favoritesService.addFavorites({ email: this.email, password: this.password });
+
       this.buttonOutlined = !this.buttonOutlined;
       console.log(favorite);
     }
@@ -80,7 +87,7 @@ export default {
             <div class="flex flex-column sm:flex-row sm:align-items-center p-4 gap-3"
                  :class="{ 'border-top-1 surface-border': index !== 0 }">
               <div class="md:w-10rem relative">
-                <img class="block xl:block mx-auto border-round w-full" :src="`${item.image}`" :alt="item.name" width="300" height="200"/>
+                <img class="block xl:block mx-auto border-round w-full" :src="`${item.imageUrl}`" :alt="item.name" width="300" height="200"/>
               </div>
               <div class="flex flex-column md:flex-row justify-content-between md:align-items-center flex-1 gap-4">
                 <div class="flex flex-row md:flex-column justify-content-between align-items-start gap-2">
@@ -116,7 +123,7 @@ export default {
               <div class="surface-50 flex justify-content-center border-round p-3">
                 <div class="relative mx-auto">
                   <img class="border-round w-full"
-                       :src="`${item.image}`" :alt="item.brand"
+                       :src="`${item.imageUrl}`" :alt="item.brand"
                        height="300px"
                        style="max-width: 300px" />
                 </div>
@@ -143,7 +150,7 @@ export default {
                       <pv-button icon="pi pi-shopping-cart" :label="$t('cta') "></pv-button>
                     </router-link>
 <!--                    add to favorites-->
-                    <pv-button icon="pi pi-heart" @click=addFavorites(item) outlined></pv-button>
+                    <pv-button icon="pi pi-heart" @click=addFavorites(item.id) outlined></pv-button>
 
                   </div>
                 </div>

@@ -60,6 +60,7 @@ export default {
         try {
           const response = await this.loginService.loginUser({ email: this.email, password: this.password });
           if (response.data && response.data.id) {
+            console.log(response.data.id);
             sessionStorage.setItem('usuario', response.data.id);
             this.$router.push('/home');
           } else {
