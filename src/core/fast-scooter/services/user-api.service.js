@@ -1,7 +1,7 @@
 import axios from "axios";
 
 const http = axios.create({
-  baseURL:'http://localhost:5087/',
+  baseURL:'https://localhost:44312/',
 
 })
 export class UserApiService {
@@ -20,7 +20,4 @@ export class UserApiService {
   }    async delete(id) {
     return await http.delete('api/v1/user/'+id)
   }
-
-
-
 }

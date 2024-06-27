@@ -59,8 +59,10 @@ export default {
       };
 
       try {
+        console.log(user);
         const response = await this.userApiService.create(user);
-        if (response.status === 201) {
+        console.log(response);
+        if (response.status === 200) {
           console.log(response.data.id);
           sessionStorage.setItem("usuario", response.data.id);
           this.$router.push('/home');

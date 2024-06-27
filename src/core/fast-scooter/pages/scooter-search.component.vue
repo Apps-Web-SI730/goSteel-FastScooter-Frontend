@@ -20,6 +20,7 @@ export default {
   },
   async mounted() {
     const response = await ScootersService.getAllScooters();
+    console.log(response);
     this.scooters = response.data;
     this.filteredScooters = this.scooters;
   },
