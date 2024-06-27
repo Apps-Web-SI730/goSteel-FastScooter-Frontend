@@ -4,11 +4,15 @@ import { User } from '@/core/fast-scooter/iam/models/user.entity.js'
 export class LoginService {
 
   getAllUsers() {
-    return http.get('/users');
+    return http.get('api/v1/user');
   }
 
   getUser(id) {
-    return http.get(`/users/${id}`);
+    return http.get(`api/v1/user/${id}`);
+  }
+
+  loginUser(user) {
+    return http.post('api/v1/user/loginrev1', user);
   }
 
   getLocalUser() {
@@ -22,8 +26,6 @@ export class LoginService {
       response.name,
       response.password,
       response.email,
-      response.company,
-      response.role
     );
   }
 }

@@ -3,7 +3,7 @@ import http from "@/core/shared/services/http-common"
 class FavoritesApiService {
 
     getAllFavorites() {
-        return http.get("/favorites")
+        return http.get("api/v1/favorite")
     }
 
     getFavoritesById(favoritesId) {
@@ -11,12 +11,12 @@ class FavoritesApiService {
     }
 
     getFavoritesByUser(userId){
-        return http.get(`/users/${userId}/favorites`)
+        return http.get(`api/v1/favorite/userId/${userId}`)
     }
 
 
     addFavorites(favorite) {
-        return http.post("/favorites", favorite)
+        return http.post("api/v1/favorite", favorite)
     }
 
     updateFavorite(favorite) {
@@ -24,7 +24,7 @@ class FavoritesApiService {
     }
 
     deleteFavorite(favoriteId) {
-        return http.delete(`/favorites/${favoriteId}`)
+        return http.delete(`api/v1/favorite/${favoriteId}`)
     }
 
 }

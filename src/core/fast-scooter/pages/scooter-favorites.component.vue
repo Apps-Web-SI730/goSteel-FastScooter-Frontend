@@ -20,6 +20,7 @@ export default {
     async fetchFavorites() {
       try {
         const res = await FavoritesService.getFavoritesByUser(this.userId);
+        console.log(res.data);
         this.favorites = res.data;
       } catch (error) {
         console.error(error);
