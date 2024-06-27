@@ -3,23 +3,23 @@ import http from "@/core/shared/services/http-common"
 class UsersApiService {
 
   getUsers() {
-    return http.get("/users")
+    return http.get("api/v1/user")
   }
 
-  getUserById(userId) {
-    return http.get(`/users/${userId}`)
+  getUserById(id) {
+    return http.get(`api/v1/user/${id}`)
   }
 
   createUser(user) {
-    return http.post("/users", user)
+    return http.post("api/v1/user", user)
   }
 
   updateUser(user) {
-    return http.put(`/users/${user.id}`, user)
+    return http.put(`api/v1/user/${user.id}`, user)
   }
 
-  deleteUser(userId) {
-    return http.delete(`/users/${userId}`)
+  deleteUser(id) {
+    return http.delete(`api/v1/user/${id}`)
   }
 
   getLocalUser() {
